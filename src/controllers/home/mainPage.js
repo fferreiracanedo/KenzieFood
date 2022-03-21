@@ -1,1 +1,3 @@
-console.log("teste")
+import { ApiPublica } from './apiPublicaItens.js'
+
+ApiPublica.buscarProdutosApi()
