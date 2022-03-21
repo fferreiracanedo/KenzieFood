@@ -18,7 +18,7 @@ Nesse trabalho vocês terão que consumir uma API de produtos.
 ### Get `/product/:id`
 
 ### Regras:
-Passar id do produto específico na url.
+passar id do produto específico na url.
 
 
 ### Resposta: Status 200
