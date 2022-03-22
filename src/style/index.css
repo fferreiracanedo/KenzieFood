@@ -40,6 +40,10 @@ header {
     align-items: center;
 }
 
+#voltarHome{
+    height: 43px;
+}
+
 #barraDePesquisa{
     display: flex;
     background-color: #e9ecef;
