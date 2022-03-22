@@ -1,15 +1,21 @@
 <!DOCTYPE html>
-<html lang="en">
+
+<html lang="pt">
+
+
 
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kenzie Food</title>
+    <link rel="stylesheet" href="./src/style/reset.css">
+    <link rel="stylesheet" href="./src/style/index.css">
 </head>
 
 <body>
     <header>
+        <section id="content">
         <section id="logoKenzieFood">
             <svg width="122" height="33" viewBox="0 0 122 33" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path
@@ -32,13 +38,14 @@
                 </svg>
             </button>
         </section>
+    </section>
     </header>
     <main>
         <article id="vitrinePrincipal">
             <nav id="botoesCategoria">
-                <button class="categoriasVitrine">Todos</button>
-                <button class="categoriasVitrine">Padaria</button>
-                <button class="categoriasVitrine">Restaurante</button>
+                <button class="categoriasVitrine" id="btnTodos">Todos</button>
+                <button class="categoriasVitrine" id="btnPanificadora">Panificadora</button>
+                <button class="categoriasVitrine" id="btnRestaurante">Restaurante</button>
             </nav>
             <section id="vitrineProdutos">
                 <div id="card-produtos"></div>
@@ -71,17 +78,16 @@
             <section id="vitrineCarrinho">
 
             </section>
-            <section>
+            <section id="qtdCarrinho"> 
                 <p>Quantidade</p>
                 <p><span id="spanQtdCarrinho">5</span></p>
             </section>
-            <section>
+            <section id="totalCarrinho">
                 <p>Total</p>
                 <p>R$: <span id="spanValorCarrinho">80,00</span></p>
             </section>
         </article>
     </main>
-
     <script type="module" src="./src/controllers/home/mainPage.js"></script>
 </body>
 
