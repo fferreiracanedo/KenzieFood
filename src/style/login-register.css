@@ -2,46 +2,99 @@
 
 body {
     background-color: #E9ECEF;
-
 }
+
 #logo {
     display: flex;
+    margin-bottom: 3em;
+    align-items: baseline;
+    place-content: center;
 }
 
 h1 {
     font-family: "Poppins";
-    font-style: normal;
-    font-weight: 700;
-    font-size: 30px;
-    line-height: 0px;
+    font-size: 3em;
     color: #212529;
-    margin-top: 70px;
-    
-    
+    margin: 0;
 }
 
 h2 {
-    margin-bottom: 25px;
-    margin-top: 57px;
-    margin-left: 5px;
     font-family: "Poppins";
-    font-style: normal;
-    font-weight: 700;
-    font-size: 20px;
+    font-size: 2em;
     color: #ff2253;
+    margin: 0;
 }
-main {
-    position: relative;
-    top: 200px;
+
+
+main{
     display: flex;
-    flex-direction: column;
-    max-width: 250px;
-    height: 420px;
-    margin: 0 auto;
-    background-color: white;
+    place-content: center;
     align-items: center;
-    border-radius: 8px;
+    height: 100vh;
 }
+
+#vitrineLogin{
+    display: grid;
+    padding: 2em;
+    background: #fff;
+    border-radius: 15px;
+}
+
+form{
+    display: grid;
+}
+
+form input{
+    margin-bottom: 1rem;
+    border: 1.5px solid #dee2e6;
+    background-color: #f8f9fa;
+    border-radius: 12px;
+    padding: 1em;
+    padding-left: 0.8em;
+}
+
+#senha{
+    margin-bottom: 0.5rem;
+}
+
+form label{
+    font-size: 1.1em;
+    margin-bottom: 0.2rem;
+}
+
+form button, #entrarComoAnonimo{
+    font-family: "Inter";
+    font-weight: 500;
+    font-size: 1.5em;
+    box-sizing: border-box;
+    border: none;
+    background-color: #ff2253;
+    color: #f8f9fa;
+    padding: 0.5rem;
+    border-radius: 12px;
+}
+
+#entrarComoAnonimo{
+    margin-top: 1rem;
+}
+
+form a{
+    text-decoration: none;
+    margin-bottom: 2rem;
+    color: #212529;
+}
+
+#infoLogin{
+    display: grid;
+}
+
+/* ;
+
+
+
+
+
+
 
 #email,
 #senha, #nome {
@@ -51,6 +104,8 @@ main {
     width: 200px;
     height: 30px;
     border-radius: 12px;
+    padding: 0.3em;
+    padding-left: 0.8em;
 }
 
 ::placeholder {
@@ -60,17 +115,7 @@ main {
 }
 
 #btnLogin, #btnCadastrar {
-    font-family: "Inter";
-    margin-top: 20px;
-    font-weight: 500;
-    font-size: 16px;
-    box-sizing: border-box;
-    border: 1.5px solid #ff2253;
-    background-color: #ff2253;
-    color: #f8f9fa;
-    border-radius: 32px;
-    width: 200px;
-    height: 30px;
+
 }
 label {
     color: #212529;
@@ -78,7 +123,22 @@ label {
     font-style: normal;
     font-weight: 700;
     font-size: 14px;
-    position: relative;
     left: -75px;
     margin-bottom: 5px;
 }
+
+form{
+    position: relative;
+    top: 200px;
+    display: flex;
+    flex-direction: column;
+    max-width: 250px;
+    height: 420px;
+    margin: 0 auto;
+    background-color: white;
+    align-items: center;
+    border-radius: 8px;}
+
+#infoLogin{
+    padding: 0 1em;
+} */
