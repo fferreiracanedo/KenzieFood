@@ -11,3 +11,5 @@ window.                                 addEventListener("click", function(event
         adminPage.fecharModal();
     }
 })
+
+adminPage.carregarCategorias("my/products")
