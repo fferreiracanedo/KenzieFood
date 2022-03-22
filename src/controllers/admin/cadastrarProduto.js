@@ -1,7 +1,7 @@
 export class adminPage {
 
     static cadastrarProduto (){
-        cadastrarProdutoModal.style.display = "block";
+        cadastrarProdutoModal.style.display = "flex";
         
     }
 
