@@ -13,11 +13,15 @@
         <h1>Kenzie</h1>
         <h2>Food</h2>
     </section>
-        <label for="email">E-mail:</label>
-        <input type="email" id="email" placeholder="Digite seu e-mail">
-        <label for="senha">Senha:</label>
-        <input type="password" id="senha" placeholder="Digite sua senha">
-        <input type="button" id="btnLogin" value="Login">
+        <form action="#" id="formLogin">
+            <label for="email">E-mail:</label>
+            <input type="email" id="email" placeholder="Digite seu e-mail">
+            <label for="senha">Senha:</label>
+            <input type="password" id="senha" placeholder="Digite sua senha">
+            <button id="btnCadastrar">Login</button>
+        </form>
+        <button id="entrarComoAnonimo">Entrar como anônimo</button>
     </main>
+    <script type="module" src="../controllers/login/scriptLogin.js"></script>
 </body>
 </html>
