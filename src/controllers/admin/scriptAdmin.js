@@ -1,5 +1,8 @@
+import { LocalStorage } from "../localStorage.js";
 import { adminPage }                    from "./cadastrarProduto.js"
 import { cadastrarProdutoModal }        from "./cadastrarProduto.js"
+
+LocalStorage.getLocalStorageAutenticadorAdmin()
 
 const adicionarProduto                  = document.getElementById("adicionarProduto")
 const span                              = document.getElementsByClassName("close")[0];

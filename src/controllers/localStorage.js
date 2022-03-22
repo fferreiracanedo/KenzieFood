@@ -8,4 +8,13 @@ export class LocalStorage{
         }
 
     }
+
+    static getLocalStorageAutenticadorAdmin(){
+        if(localStorage.getItem('key') == undefined){
+            window.location.href = './register.html'
+        }
+        if(JSON.parse(localStorage.getItem('key')) == 'USUARIOANONIMO'){
+            window.location.href = '../../index.html'
+        }
+    }
 }
