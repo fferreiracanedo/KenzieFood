@@ -3,6 +3,9 @@ export class CardProduto{
     static vitrineCard = document.getElementById('vitrineProdutos')
 
     static templateCard(arrayProdutos){
+
+        this.vitrineCard.innerHTML=""
+
         arrayProdutos.forEach(({categoria, descricao, imagem, nome, id}) => {
             const categoriaCardProduto = []
 
@@ -46,8 +49,11 @@ export class CardProduto{
                     </button>
                 </div>
         `
+
         setTimeout(() => {
             const categoriaCard = document.getElementById(`${id}`)
+            categoriaCard.innerHTML=""
+
             categoriaCardProduto.forEach((categoria) => {
                 let categoriaTitle = document.createElement("h3")
                 categoriaTitle.innerText=categoria
@@ -56,6 +62,7 @@ export class CardProduto{
         },500)
 
         this.vitrineCard.appendChild(containerCard)
+
         })
     }
 }

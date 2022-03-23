@@ -428,7 +428,6 @@ header {
     .infoDescricao p{
         max-width: 20ch;
     }
-
 }
 
 
@@ -724,28 +723,29 @@ color: #F8F9FA;
 /* Modal: Editar produto - Fim*/
 
 
-.notification-popup{
+.notification-popup,
+.notification-popup--hide
+{
     width: 496px;
     height: 135px;
     bottom: 8px;
     float: right;
     right: 8px;
     position: fixed;
-    opacity: 1;
     transition: opacity .5s linear;
-
+    pointer-events: none
 }
-
+.notification-popup {
+    opacity: 1;
+}
 .notification-popup--hide{
     opacity: 0;
-    pointer-events: none
 }
 
 .notification-popup__cabecalho{
     display: flex;
     align-items: center;
     position: relative;
-    
     width: 100%;
     height: 70px;
     border-radius: 8px 8px 0px 0px;
@@ -805,9 +805,3 @@ color: #F8F9FA;
     height: 8px;
     border-radius: 0px 0px 8px 8px
 }
-
-.notification-popup__status--bg-color{
-    
-    background-color: #39DF8F;
-}
-
