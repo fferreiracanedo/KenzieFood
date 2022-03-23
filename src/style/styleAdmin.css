@@ -1,4 +1,10 @@
+
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+
+body{
+    font-family: 'Poppins', sans-serif;
+}
 
 /* HEADER */
 header {
@@ -177,12 +183,11 @@ header {
     margin-bottom: 5px;
 }
 
-#cadastrarProdutoCategorias{
+#cadastrarProdutoCategorias {
     display: flex;
     justify-content: flex-start;
-    flex-wrap: wrap;
+    overflow: auto;
     max-width: 440px;
-
 }
 
 #cadastrarProdutoCategorias .categoriasVitrine {
@@ -213,12 +218,13 @@ header {
 #vitrineCategorias {
     display: flex;
     justify-content: space-between;
-    margin: 0 48px;
+    margin: 0 48px 48px;
 }
 
 #botoesCategoria {
     display: flex;
-    flex-wrap: wrap;
+    overflow-x: auto;
+    margin-right: 10px;
 }
 
 .categoriasVitrine {
@@ -273,7 +279,7 @@ header {
 }
 /* TABELA CARDS */
 
-#vitrineProdutos{
+#vitrineProdutos {
     display: grid;
     margin: 0 48px;
     overflow-x: scroll;
@@ -329,8 +335,35 @@ header {
 
 .infoCategorias{
     width: 30%;
+    max-width: 30%;
     display: flex;
     align-items: center;
+    overflow-x: auto;
+    margin-right: 10px;
+}
+
+.infoCategorias::-webkit-scrollbar {
+    height: 5px;
+}
+
+#cadastrarProdutoCategorias::-webkit-scrollbar,
+#botoesCategoria::-webkit-scrollbar {
+    width: 1px;
+    height: 10px;
+}
+
+.infoCategorias::-webkit-scrollbar-track, 
+#cadastrarProdutoCategorias::-webkit-scrollbar-track,
+#botoesCategoria::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+}
+   
+.infoCategorias::-webkit-scrollbar-thumb, 
+#cadastrarProdutoCategorias::-webkit-scrollbar-thumb,
+#botoesCategoria::-webkit-scrollbar-thumb {
+    background-color: #FF2253;
+    border-radius: 10px;
 }
 
 .infoCategorias h3{
@@ -395,10 +428,6 @@ header {
     .infoDescricao p{
         max-width: 20ch;
     }
-
-<<<<<<< Updated upstream
-}
-=======
 }
 
 
@@ -776,4 +805,3 @@ color: #F8F9FA;
     height: 8px;
     border-radius: 0px 0px 8px 8px
 }
->>>>>>> Stashed changes

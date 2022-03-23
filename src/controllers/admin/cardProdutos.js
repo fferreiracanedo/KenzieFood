@@ -3,12 +3,27 @@ export class CardProduto{
     static vitrineCard = document.getElementById('vitrineProdutos')
 
     static templateCard(arrayProdutos){
-<<<<<<< Updated upstream
-=======
+
         this.vitrineCard.innerHTML=""
->>>>>>> Stashed changes
-        
+
         arrayProdutos.forEach(({categoria, descricao, imagem, nome, id}) => {
+            const categoriaCardProduto = []
+
+            if (categoria.includes(',')){
+                let arr = categoria.split(',')
+                    arr.forEach((novoProduto) => {
+                        let filtered = novoProduto.replaceAll(' ', '')
+                        if (!categoriaCardProduto.includes(filtered)) {
+                            let upperCase = filtered.replace(filtered[0], filtered[0].toUpperCase())
+                            categoriaCardProduto.push(upperCase)
+                        }
+                    })
+            }
+            if (!categoriaCardProduto.includes(categoria) && !categoria.includes(',')) {
+                let upperCase = categoria.replace(categoria[0], categoria[0].toUpperCase())
+                categoriaCardProduto.push(upperCase)
+            }
+
             const containerCard = document.createElement('div')
             containerCard.classList.add('containerCardProduto')
             containerCard.innerHTML = `
@@ -16,8 +31,7 @@ export class CardProduto{
                     <img src=${imagem} alt="" srcset="">
                     <h2>${nome}</h2>
                 </div>
-                <div class="infoCategorias">
-                    <h3>${categoria}</h3>
+                <div class="infoCategorias" id="${id}">
                 </div>
                 <div class="infoDescricao">
                     <p>${descricao}</p>
@@ -35,11 +49,11 @@ export class CardProduto{
                     </button>
                 </div>
         `
-<<<<<<< Updated upstream
-=======
+
         setTimeout(() => {
             const categoriaCard = document.getElementById(`${id}`)
             categoriaCard.innerHTML=""
+
             categoriaCardProduto.forEach((categoria) => {
                 let categoriaTitle = document.createElement("h3")
                 categoriaTitle.innerText=categoria
@@ -47,7 +61,6 @@ export class CardProduto{
             })
         },500)
 
->>>>>>> Stashed changes
         this.vitrineCard.appendChild(containerCard)
 
         })

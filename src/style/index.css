@@ -1,5 +1,12 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 
+
+body{
+    font-family: 'Poppins', sans-serif;
+}
+
+
+
 header {
     width: 100%;
     line-height: 70px;
@@ -65,13 +72,19 @@ main {
 }
 
 img {
+    transition: 0.5s;
     width: 270px;
+    border: 2px solid transparent;
 }
 
+
 img:hover {
+    -webkit-box-shadow: 0px 10px 13px -7px #000000, 1px 4px 13px 5px rgba(255,110,110,0);
+    box-shadow: 0px 10px 13px -7px #000000, 1px 4px 13px 5px rgba(255,110,110,0);
     cursor: pointer;
     border: 2px solid #000000;
     border-radius: 10px;
+    
 }
 
 #vitrinePrincipal {
@@ -125,7 +138,25 @@ img:hover {
 
 #botoesCategoria {
     display: flex;
-    flex-wrap: wrap;
+    overflow-x: auto;
+    width: 90%;
+    max-width: 90%;
+}
+
+#botoesCategoria::-webkit-scrollbar {
+    width: 1px;
+    height: 10px;
+    margin-right: 10px;
+}
+
+#botoesCategoria::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+}
+
+#botoesCategoria::-webkit-scrollbar-thumb {
+    background-color: #FF2253;
+    border-radius: 10px;
 }
 
 .categoriasVitrine {
@@ -185,15 +216,16 @@ img:hover {
 #produtoNome {
     margin-top: -30px;
     font-family: "Poppins";
-    font-style: normal;
-    font-weight: 700;
+    font-style: medium;
+    font-weight: 500;
     margin-bottom: 20px;
 }
 
 #produtoDescricao {
+    line-height: 24px;
     font-family: "Poppins";
     font-style: normal;
-    font-weight: 300;
+    font-weight: 400;
     font-size: 14px;
     color: #868e96;
     margin-bottom: 20px;
