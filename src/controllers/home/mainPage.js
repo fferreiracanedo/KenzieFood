@@ -16,6 +16,10 @@ const campoPesquisa = document.querySelector("#pesquisa")
 
 campoPesquisa.addEventListener("keyup", (e)=> {
     const infoPesquisa =  e.target.value 
+    console.log(infoPesquisa)
     PesquisaDinamica.filtroPesquisa(arrayProdutos, infoPesquisa)
 })
 
+const btnAdicionarCarrinho = document.querySelector("#btnAdicionarCarrinho")
+
+btnAdicionarCarrinho.addEventListener()

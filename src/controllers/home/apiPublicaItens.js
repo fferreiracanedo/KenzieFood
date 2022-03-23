@@ -12,7 +12,10 @@ export class ApiPublica {
                     arrayProdutos.push(produto)
                 });
             });
+
         return arrayProdutos
+
+
     }
 
     static vitrine = document.getElementById("vitrineProdutos");
