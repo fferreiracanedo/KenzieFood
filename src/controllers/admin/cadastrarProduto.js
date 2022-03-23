@@ -1,19 +1,20 @@
-import { LocalStorage } from "../localStorage.js"
-
 export class adminPage {
-    static API_URL           = 'https://kenzie-food-api.herokuapp.com/'
-    static categoriaProdutos = [];
+    static API_URL                  = 'https://kenzie-food-api.herokuapp.com/'
+    static categoriaProdutos        = [];
+    static categoriasEscolhidas     = [];
+    static collection               = document.getElementsByTagName("input")
+    static categoriasEscolhidas     = []
+    static categoriaCustomizada     = ""
 
     static cadastrarProduto (){
         cadastrarProdutoModal.style.display = "flex";
-        
     }
 
     static fecharModal (){
         cadastrarProdutoModal.style.display = "none";
     }
 
-    static async carregarCategorias (url){
+    static async carregarCategorias (url, area, buttonID){
         const tokenDaEquipe     = localStorage.getItem('key').replaceAll(`"`, ``)
         this.categoriaProdutos  = []
         
@@ -145,32 +146,133 @@ export class adminPage {
         .then((res) => res.json())
         .then((res) => {
             res.forEach((produto) => {
-                if (!this.categoriaProdutos.includes(produto.categoria)){
+                if (produto.categoria.includes(',')){
+                    let arr = produto.categoria.split(', ')
+                    arr.forEach((novoProduto) => {
+                        this.categoriaProdutos.push(novoProduto)
+                    })
+                }
+            })
+            return res
+        })
+        .then((res) => {
+            res.forEach((produto) => {
+                if (!this.categoriaProdutos.includes(produto.categoria) && !produto.categoria.includes(',')){
                     this.categoriaProdutos.push(produto.categoria)
                 }
-                return this.categoriaProdutos
             })
+            return this.categoriaProdutos
         })
         .then(() =>{
             this.categoriaProdutos.forEach((categoria) => {
-                const novaCategoria = document.createElement("button");
-                botoesCategoria.appendChild(novaCategoria);
+                const novaCategoria = document.createElement("input");
+                novaCategoria.setAttribute("type", "button")
+                area.appendChild(novaCategoria);
                 novaCategoria.setAttribute("class", "categoriasVitrine");
-                novaCategoria.setAttribute("id", `${categoria.toLowerCase()}NavButton`);
-                if (categoria === "Bebidas"){
-                    novaCategoria.innerHTML = `${bebidaSVG} ${categoria}`
-                } else if (categoria === "Frutas") {
-                    novaCategoria.innerHTML = `${frutaSVG} ${categoria}`
-                } else if (categoria === "Panificadora") {
-                    novaCategoria.innerHTML = `${panificadoraSVG} ${categoria}`
-                } else {
-                    novaCategoria.innerHTML = `${categoria}`
-                }
+                novaCategoria.setAttribute("id", `${categoria.toLowerCase()}${buttonID}Button`);
+                // if (categoria === "Bebidas"){
+                //     novaCategoria.innerHTML = `${bebidaSVG} ${categoria}`
+                // } else if (categoria === "Frutas") {
+                //     novaCategoria.innerHTML = `${frutaSVG} ${categoria}`
+                // } else if (categoria === "Panificadora") {
+                //     novaCategoria.innerHTML = `${panificadoraSVG} ${categoria}`
+                // } else {
+                    novaCategoria.value = `${categoria}`
+                // }
             });
         })
     }
+
+    static async habilitarSelecaoCategorias(){
+        adminPage.categoriasEscolhidas.length = 0
+        for (let i = 0; i < adminPage.collection.length; i++) {
+            if (adminPage.collection[i].id.includes("CadastroButton")){
+                adminPage.collection[i].addEventListener("click", (event) => {
+
+                    const categoriaProdutoClicado = event.target.value
+                    if (!adminPage.categoriasEscolhidas.includes(categoriaProdutoClicado)){
+                        adminPage.categoriasEscolhidas.push(categoriaProdutoClicado)
+                    } else if (adminPage.categoriasEscolhidas.includes(categoriaProdutoClicado)) {
+                        for (let k = 0; k < adminPage.categoriasEscolhidas.length; k++) {
+                            if (adminPage.categoriasEscolhidas[k] === categoriaProdutoClicado){
+                                adminPage.categoriasEscolhidas.splice(k,1)
+                            }
+                        }
+                    }
+
+                    const buttonClass             = event.target.getAttribute("class")
+                    if (buttonClass === "categoriasVitrine"){
+                        event.target.setAttribute("class", "categoriaProdutoSelected")
+                        event.target.setAttribute("width", "4px")
+                    } else {
+                        event.target.setAttribute("class", "categoriasVitrine")
+                    }
+                }) 
+            }
+        }
+    }
+
+    static async cadastrarNovoProduto (){
+
+        const tokenDaEquipe                  = localStorage.getItem('key').replaceAll(`"`, ``)
+        const nomeProduto                    = document.querySelector('input[name="nomeProduto"]')
+        const descricaoProduto               = document.querySelector('input[name="descricaoProduto"]')
+        const valorProduto                   = document.querySelector('input[name="valorProduto"]')
+        const imagemProduto                  = document.querySelector('input[name="imagemProduto"]')
+        // const categoriaCustomizada           = categoriaInedita.value
+        
+        
+        const data = {
+            "nome": `${nomeProduto.value}`,
+            "preco": valorProduto.value,
+            "categoria": `${adminPage.categoriasEscolhidas.toString()}`,
+            "imagem": `${imagemProduto.value}`,
+            "descricao" : `${descricaoProduto.value}`,
+
+        }
+
+        if (adminPage.categoriaCustomizada !== ""){
+           
+            if (adminPage.categoriaProdutos.includes(adminPage.categoriaCustomizada)){
+                window.alert("Não é possível registrar esta nova categoria pois ela já existe!")
+            } else {
+                adminPage.categoriasEscolhidas.push(adminPage.categoriaCustomizada)
+                console.log(adminPage.categoriasEscolhidas)
+            }
+        }
+        
+    
+        fetch(`${this.API_URL}my/products`, {
+            "method": "POST",
+            "headers": {
+                "Content-Type": "application/json",
+                "Authorization": `Bearer ${tokenDaEquipe}`
+            },
+        "body": JSON.stringify(data),
+        })
+        .then((res) => {
+            console.log(res.status)
+            if (res.status === 201){
+                adminPage.categoriasEscolhidas.length = 0
+                adminPage.fecharModal()
+                nomeProduto.value = ""
+                descricaoProduto.value = ""
+                valorProduto.value = ""
+                imagemProduto.value = ""
+                for (let z = 0; z < adminPage.collection.length; z++){
+                    if (adminPage.collection[z].id.includes("CadastroButton")){
+                        adminPage.collection[z].setAttribute("class", "categoriasVitrine")
+                    }
+                }
+            } else {
+                window.alert("Erro!")
+            }
+        })
+
+    }
 }
-
-
+export const cadastrarProdutoCategorias        = document.getElementById("cadastrarProdutoCategorias");
 export const botoesCategoria                   = document.getElementById("botoesCategoria");
 export const cadastrarProdutoModal             = document.getElementById("cadastrarProdutoModal");
+export const categoriasEscolhidas              = []
+export const categoriaInedita                  = document.getElementById("categoriaInedita")

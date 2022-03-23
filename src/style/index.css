@@ -125,6 +125,7 @@ img:hover {
 
 #botoesCategoria {
     display: flex;
+    flex-wrap: wrap;
 }
 
 .categoriasVitrine {
@@ -140,7 +141,7 @@ img:hover {
     border: 1.5px solid #fff7f4;
     box-sizing: border-box;
     border-radius: 32px;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
 }
 
 .categoriasVitrine {
