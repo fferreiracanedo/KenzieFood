@@ -131,7 +131,25 @@ img:hover {
 
 #botoesCategoria {
     display: flex;
-    flex-wrap: wrap;
+    overflow-x: auto;
+    width: 90%;
+    max-width: 90%;
+}
+
+#botoesCategoria::-webkit-scrollbar {
+    width: 1px;
+    height: 10px;
+    margin-right: 10px;
+}
+
+#botoesCategoria::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+}
+
+#botoesCategoria::-webkit-scrollbar-thumb {
+    background-color: #FF2253;
+    border-radius: 10px;
 }
 
 .categoriasVitrine {
