@@ -123,7 +123,14 @@ img:hover {
     background-color: #ffffff;
 }
 
+#botoesCategoria {
+    display: flex;
+    flex-wrap: wrap;
+}
+
 .categoriasVitrine {
+    display: flex;
+    align-items: center;
     height: 48px;
     width: 170px;
     font-family: "Inter";
@@ -134,22 +141,32 @@ img:hover {
     border: 1.5px solid #fff7f4;
     box-sizing: border-box;
     border-radius: 32px;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
 }
 
-#btnTodos {
-    width: 88px;
-    background: #ff2253;
-    border: 1.5px solid #f3eef5;
+.categoriasVitrine {
     color: #212529;
-    background: #f3eef5;
+    border: 1.5px solid #fff7f4;
+}
+.categoriasVitrine, .categoriaSelected {
+    height: 48px;
+    width: fit-content;
+    font-family: "Inter";
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    box-sizing: border-box;
+    border-radius: 32px;
+    margin-bottom: 30px;
+    margin-right: 3px;
+    padding: 0px 20px;
+    cursor: pointer;
 }
 
-#btnTodos:hover,
-#btnPanificadora:hover,
-#btnRestaurante:hover {
-    cursor: pointer;
-    border: 2px solid #000000;
+.categoriasVitrine:hover, .categoriaSelected {
+    background-color: #FF2253;
+    border: 1.5px solid #FF2253;
+    color: white;
 }
 
 #vitrineProdutos {
