@@ -404,6 +404,14 @@ header {
 body{
     box-sizing: border-box;
 }
+.modalEditarCarrinhoContainerOverlay{
+    width: 100vw;
+    height: 100vh;
+    background-color: #0000003d;
+    top: 0;
+    position: fixed;
+    z-index: 2;
+}
 .modalEditarProdutoCarrinho{
     width: 496px;
     margin: 0 auto;

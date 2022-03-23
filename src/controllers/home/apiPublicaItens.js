@@ -12,6 +12,7 @@ export class ApiPublica {
                     arrayProdutos.push(produto)
                 });
             });
+            //console.log(arrayProdutos)
             return arrayProdutos
     }
 
