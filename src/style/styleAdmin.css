@@ -270,10 +270,11 @@ header {
 .categoriaProdutoSelected {
     height: 40px;
     margin: 4px;
+}
 
 /* TABELA CARDS */
 
-#vitrineProdutos{
+#vitrineProdutos {
     display: grid;
     margin: 0 48px;
     overflow-x: scroll;
