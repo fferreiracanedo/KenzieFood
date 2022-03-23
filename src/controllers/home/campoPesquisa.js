@@ -4,19 +4,22 @@ export class PesquisaDinamica {
     static arrayProdutos = []
 
      static filtroPesquisa(array, pesquisa) {
-         console.log(array)
+         
          if(pesquisa.length == 0 ) {
-             console.log(array)
              ApiPublica.template(array)
          }
      
-        array.forEach((produto) => {
-           if(produto.nome == pesquisa) {
+        array.filter(produto => {
+            const filtroProduto = produto.nome.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "")
+            const pesquisaFiltro = pesquisa.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "")
+           if(filtroProduto.includes(pesquisaFiltro)) {
             this.arrayProdutos.push(produto)
+            console.log(pesquisa)
            }
      }) 
-     console.log(this.arrayProdutos)
+   
      ApiPublica.template(this.arrayProdutos)
     this.arrayProdutos = []
 }
 }
+
