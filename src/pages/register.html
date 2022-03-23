@@ -9,17 +9,24 @@
     </head>
     <body>
         <main>
-            <section id="logo">
-                <h1>Kenzie</h1>
-                <h2>Food</h2>
-            </section>
-            <label for="nome">Nome:</label>
-            <input type="email" id="nome" placeholder="Digite seu nome completo" />
-            <label for="email">E-mail:</label>
-            <input type="email" id="email" placeholder="Digite seu e-mail" />
-            <label for="senha">Senha:</label>
-            <input type="password" id="senha" placeholder="Digite sua senha" />
-            <input type="button" id="btnCadastrar" value="Cadastrar" />
+            <article id="vitrineLogin">
+                <section id="logo">
+                    <h1>Kenzie</h1>
+                    <h2>Food</h2>
+                </section>
+                <form action="#" id="formCadastro">
+                    <label for="nome">Nome:</label>
+                    <input type="text" id="nome" placeholder="Digite seu nome completo"/>
+                    <label for="email">E-mail:</label>
+                    <input type="email" id="email" placeholder="Digite seu e-mail"/>
+                    <label for="senha">Senha:</label>
+                    <input type="password" id="senha" placeholder="Digite sua senha"/>
+                    <a href="./login.html">Ja sou cadastrado</a>
+                    <button id="btnCadastrar">Cadastrar</button>
+                </form>
+                <button id="entrarComoAnonimo">Entrar como anônimo</button>
+            </article>
         </main>
+        <script type="module" src="../controllers/registrar/scriptRegistro.js"></script>
     </body>
 </html>
