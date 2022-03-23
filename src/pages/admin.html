@@ -38,6 +38,33 @@
                 <button id="adicionarProduto">Adicionar novo produto</button>
             </section>
 
+            <div id="cadastrarProdutoModal" class="modal">
+
+                <div class="modal-content">
+                    <div class="cadastro">
+                        <span class="close">X</span>
+                        <p>Cadastro de produto</p>
+                    </div>
+                    <div id="cadastrarProdutoInfo">
+                        <form id="cadastrarProdutoForm">
+                            <label for="nomeProduto">Nome do Produto</label>
+                            <input class="cadastrarProdutoInput" type="text" name="nomeProduto" placeholder="Digitar o nome do produto">
+                            <label for="descricaoProduto">Descrição</label>
+                            <input class="cadastrarProdutoInput" type="text" name="descricaoProduto" placeholder="Digitar a descrição">
+                            <label>Categorias</label>
+                            <div id="cadastrarProdutoCategorias">
+                            </div>
+                            <label for="valorProduto">Valor do Produto</label>
+                            <input class="cadastrarProdutoInput" type="number" name="valorProduto" placeholder="Digitar o valor aqui">
+                            <label for="imagemProduto">Link da Imagem</label>
+                            <input class="cadastrarProdutoInput" type="url" name="imagemProduto" placeholder="Inser link">
+                            <button id="cadastrarProdutoButton">Cadastrar Produto</button>
+                        </form>
+                    </div>
+                </div>
+              
+              </div>
+
             <section id="vitrineProdutos">
                 <!-- CARD DOS PRODUTOS VAI AQUI -->
             </section>
