@@ -273,7 +273,7 @@ header {
 }
 /* TABELA CARDS */
 
-#vitrineProdutos{
+#vitrineProdutos {
     display: grid;
     margin: 0 48px;
     overflow-x: scroll;
