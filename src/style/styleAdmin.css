@@ -163,7 +163,7 @@ header {
     flex-direction: column;
 }
 
-#cadastrarProdutoForm input {
+.cadastrarProdutoInput {
     width: 440px;
     height: 52px;
     background: #F8F9FA;
@@ -179,11 +179,13 @@ header {
 
 #cadastrarProdutoCategorias{
     display: flex;
-    justify-content: space-around;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    max-width: 440px;
 
 }
 
-#cadastrarProdutoCategorias input{
+#cadastrarProdutoCategorias .categoriasVitrine {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -196,12 +198,13 @@ header {
     font-weight: 500;
     font-size: 16px;
     line-height: 19px;
-    width: 136px;
+    width: fit-content;
+    padding: 0px 20px;
     height: 40px;
-
+    margin: 4px;
 }
 
-#cadastrarProdutoCategorias input:hover, .categoriasVitrine:hover, .categoriaSelected {
+#cadastrarProdutoCategorias .categoriasVitrine:hover, .categoriasVitrine:hover, .categoriaSelected, .categoriaProdutoSelected {
     background-color: #FF2253;
     border: 1.5px solid #FF2253;
     color: white;
@@ -215,13 +218,14 @@ header {
 
 #botoesCategoria {
     display: flex;
+    flex-wrap: wrap;
 }
 
 .categoriasVitrine {
     color: #212529;
     border: 1.5px solid #fff7f4;
 }
-.categoriasVitrine, .categoriaSelected {
+.categoriasVitrine, .categoriaSelected, .categoriaProdutoSelected {
     display: flex;
     align-items: center;
     height: 48px;
@@ -232,14 +236,37 @@ header {
     font-size: 16px;
     box-sizing: border-box;
     border-radius: 32px;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
     margin-right: 3px;
     padding: 0px 20px;
     cursor: pointer;
 }
 
-.categoriasVitrine:hover, .categoriaSelected {
+.categoriasVitrine:hover, .categoriaSelected, .categoriaProdutoSelected {
     background-color: #FF2253;
     border: 1.5px solid #FF2253;
     color: white;
+}
+
+#categoriaInedita {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    border: 1.5px solid #F8F9FA;
+    border-radius: 32px;
+    background: #F8F9FA;
+    color: #868E96;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 19px;
+    width: fit-content;
+    padding: 0px 20px;
+    height: 40px;
+    margin: 4px;
+}
+
+.categoriaProdutoSelected {
+    height: 40px;
+    margin: 4px;
 }
