@@ -19,3 +19,6 @@ campoPesquisa.addEventListener("keyup", (e)=> {
     PesquisaDinamica.filtroPesquisa(arrayProdutos, infoPesquisa)
 })
 
+const btnAdicionarCarrinho = document.querySelector("#btnAdicionarCarrinho")
+
+btnAdicionarCarrinho.addEventListener()
