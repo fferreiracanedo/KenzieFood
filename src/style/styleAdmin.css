@@ -248,6 +248,7 @@ header {
     color: white;
 }
 
+
 #categoriaInedita {
     display: flex;
     align-items: center;
@@ -269,4 +270,130 @@ header {
 .categoriaProdutoSelected {
     height: 40px;
     margin: 4px;
+
+/* TABELA CARDS */
+
+#vitrineProdutos{
+    display: grid;
+    margin: 0 48px;
+    overflow-x: scroll;
+}
+
+#tituloVitrine{
+    display: flex;
+    margin-bottom: 2rem;
+}
+
+.coluna{
+    width: 30%;
+    font-size: 1em;
+    color: #868E96;
+}
+
+.colunaAcoes{
+    width: 20%;
+    font-size: 1em;
+    display: flex;
+    color: #868E96;
+    justify-content: center;
+}
+
+.containerCardProduto{
+    display: flex;
+    margin: 0.5rem 0;
+    border: 1px solid #E9ECEF;
+    border-radius: 12px;
+    padding: 0.5rem;
+}
+
+.infoProduto{
+    width: 30%;
+    display: flex;
+    align-items: center;
+}
+
+.infoProduto img{
+    width: 2rem;
+    height: 2rem;
+    border-radius: 132px;
+    margin-right: 1.5rem;
+}
+
+.infoProduto h2{
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 0.9em;
+    color: #212529;
+}
+
+.infoCategorias{
+    width: 30%;
+    display: flex;
+    align-items: center;
+}
+
+.infoCategorias h3{
+    color: #868E96;
+    background: #F8F9FA;
+    border-radius: 8px;
+    padding: 0.3em 1em;
+}
+
+.infoDescricao{
+    width: 30%;
+    display: flex;
+    align-items: center;
+    
+}
+
+.infoDescricao p{
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 0.9em;
+    color: #868E96;
+    max-width: 12ch;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.infoAcoes{
+    width: 20%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.infoAcoes button{
+    display: flex;
+    border-radius: 100px;
+    width: 2.5rem;
+    align-content: center;
+    height: 2.5rem;
+    align-items: center;
+    justify-content: center;
+    border: none;
+}
+
+.infoAcoes button svg{
+    width: 1rem;
+    height: 1rem;
+}
+
+#editar{
+    margin: 0 1rem;
+}
+
+@media (min-width: 800px){
+
+    #vitrineProdutos{
+        overflow-x: hidden;
+    }
+
+    .infoDescricao p{
+        max-width: 20ch;
+    }
+
 }
