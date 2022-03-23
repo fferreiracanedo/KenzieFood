@@ -1,20 +1,27 @@
 export class ApiPublica {
     static async buscarProdutosApi() {
-        const vitrineProdutos = document.getElementById("vitrineProdutos");
+        let arrayProdutos = []
+
 
         await fetch("https://kenzie-food-api.herokuapp.com/products")
             .then((res) => res.json())
             .then((data) => {
-                console.log(data);
                 data.forEach((produto) => {
-                    const template = ApiPublica.template(produto);
-                    vitrineProdutos.appendChild(template);
+                    // const template = ApiPublica.template(produto);
+                    // vitrineProdutos.appendChild(template);
+                    arrayProdutos.push(produto)
                 });
             });
+            return arrayProdutos
     }
 
-    static template({ nome, preco, categoria, descricao, imagem }) {
+    static vitrine = document.getElementById("vitrineProdutos");
+
+    static template(array) {
+        this.vitrine.innerHTML = ""
+      array.forEach(({nome,imagem,categoria,descricao,preco}) => {
         const cardProduto = document.createElement("div");
+        cardProduto.innerHTML = "";
         cardProduto.classList.add("cardProduto");
 
         cardProduto.innerHTML = `
@@ -24,9 +31,10 @@ export class ApiPublica {
             <p id="produtoDescricao"> ${descricao}</p>
             <div id="precoBtn">
             <h4 id="produtoPreco">R$${preco}</h4>
-            <button id="btnAdicionarCarrinho"></button>
+            <button id="btnAdicionarCarrinho">+</button>
             </div>
-`;
-        return cardProduto;
+`;          this.vitrine.appendChild(cardProduto);
+      })
+        
     }
 }
