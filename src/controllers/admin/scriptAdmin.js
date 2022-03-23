@@ -8,8 +8,9 @@ import { botoesCategoria }              from "./cadastrarProduto.js"
 import { cadastrarProdutoCategorias }   from "./cadastrarProduto.js"
 import { categoriaInedita }             from "./cadastrarProduto.js"
 
-
+// AUTENTICACAO
 LocalStorage.getLocalStorageAutenticadorAdmin()
+
 adminPage.carregarCategorias("my/products", botoesCategoria, "Nav")
 adminPage.carregarCategorias("products", cadastrarProdutoCategorias, "Cadastro")
 setTimeout(() => adminPage.habilitarSelecaoCategorias(), 2000)
