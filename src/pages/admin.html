@@ -5,6 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../style/reset.css">
+   <!--  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap" > -->
     <link rel="stylesheet" href="../style/styleAdmin.css">
     <title>Kenzie Food</title>
 </head>
@@ -43,6 +45,56 @@
             </section>
         </article>
     </main>
+    <div class="containerOverlay">
+        <div class="modalEditarProdutoCarrinho modalEditarProdutoCarrinho--hide">
+            <div class="modalEditarProdutoCarrinho__cabecalho">
+                <h2>Edição de produto</h2>
+                <span>x</span>                   
+            </div>
+
+            <div class="modalEditarProdutoCarrinho__corpo">
+                <form action="#">
+                        <div class="modalEditarProdutoCarrinho__containerNome">
+                            <label class="modalEditarProdutoCarrinho__label" for="nome">Nome do Produto</label>
+                            <input class="modalEditarProdutoCarrinho__input" type="text" name="nome" id="nome" placeholder="">
+                        </div>
+                
+                        <div class="modalEditarProdutoCarrinho__containerDescricao"> 
+                            <label class="modalEditarProdutoCarrinho__descricao" for="descricao">Descrição</label>
+                            <textarea type="text" name="descricao" id="descricao" class="modalEditarProdutoCarrinho__textArea"  placeholder="Esse é um dos sabores de pizza mais pedidos por quem não come carne"></textarea>
+                        </div>            
+
+                        <div class="modalEditarProdutoCarrinho__categoria">
+                            <h3>Categorias</h3>
+                            <div class="modalEditarProdutoCarrinho__containerBotoes">
+                            
+                                <button class="modalEditarProdutoCarrinho__butoes">Panificadora</button>
+                                <button class="modalEditarProdutoCarrinho__butoes">Frutas</button>
+                                <button class="modalEditarProdutoCarrinho__butoes">Bebidas</button>
+                            </div>
+                        </div>
+
+                        <div class="modalEditarProdutoCarrinho__containerValorProduto">
+                            <label class="modalEditarProdutoCarrinho__label" for="nome">Valor do Produto</label>
+                            <input class="modalEditarProdutoCarrinho__input" type="text" name="nome" id="nome" placeholder="50.00">
+                        </div>
+                        
+                        <div class="modalEditarProdutoCarrinho__containerLinkDaImagem">
+                            <label class="modalEditarProdutoCarrinho__label" for="nome">Link da imagem</label>
+                            <input class="modalEditarProdutoCarrinho__input" type="url" name="nome" id="nome" placeholder="https://images.unsplash.com/">
+                        </div>
+
+                        <div class="modalEditarProdutoCarrinho__containerBotoesSubmit">
+                            
+                            <button class="modalEditarProdutoCarrinho__butoes">Excluir</button>
+                            <button class="modalEditarProdutoCarrinho__butoes modalEditarProdutoCarrinho__butoes--width">Salvar alterações</button>
+                        </div>
+                    
+                </form>
+            </div>
+        </div>
+    </div>
+    
     <script type="module" src="../controllers/admin/scriptAdmin.js"></script>
 </body>
 </html>
