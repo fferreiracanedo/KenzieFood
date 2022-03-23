@@ -59,7 +59,10 @@ form a:hover{
 form{
     display: grid;
 }
-
+button{
+    text-transform: uppercase;
+   
+}
 form input{
     margin-bottom: 1rem;
     border: 1.5px solid #dee2e6;
@@ -81,10 +84,10 @@ form label{
 form button, #entrarComoAnonimo{
     cursor: pointer;
     font-weight: 700;
-    font-size: 1rem;
+    font-size: 0.9rem;
     box-sizing: border-box;
     border: none;
-    background-color: #ff2253;
+    background-color: #da4b4b;
     color: #f8f9fa;
     padding: 0.5rem;
     border-radius: 12px;
