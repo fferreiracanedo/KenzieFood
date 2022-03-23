@@ -1,3 +1,4 @@
+import { AdminAPI }                     from "./adminAPI.js";
 export class adminPage {
     static API_URL                  = 'https://kenzie-food-api.herokuapp.com/'
     static categoriaProdutos        = [];
@@ -5,6 +6,7 @@ export class adminPage {
     static collection               = document.getElementsByTagName("input")
     static categoriasEscolhidas     = []
     static categoriaCustomizada     = ""
+    static categoriaInedita         = ""
 
     static cadastrarProduto (){
         cadastrarProdutoModal.style.display = "flex";
@@ -12,6 +14,15 @@ export class adminPage {
 
     static fecharModal (){
         cadastrarProdutoModal.style.display = "none";
+    }
+
+    static async gerarCustomizarCategoria(){
+        const categoriaInedita = document.createElement("input")
+        categoriaInedita.setAttribute("type", "text")
+        categoriaInedita.setAttribute("id", "categoriaInedita")
+        categoriaInedita.setAttribute("placeholder", "Nova Categoria")
+        cadastrarProdutoCategorias.appendChild(categoriaInedita)
+        adminPage.categoriaInedita                  = document.getElementById("categoriaInedita")
     }
 
     static async carregarCategorias (url, area, buttonID){
@@ -146,10 +157,13 @@ export class adminPage {
         .then((res) => res.json())
         .then((res) => {
             res.forEach((produto) => {
-                if (produto.categoria.includes(',')){
+                if (produto.categoria.includes(', ')){
                     let arr = produto.categoria.split(', ')
                     arr.forEach((novoProduto) => {
-                        this.categoriaProdutos.push(novoProduto)
+                        if (!this.categoriaProdutos.includes(novoProduto)) {
+                            let upperCase = novoProduto.replace(novoProduto[0], novoProduto[0].toUpperCase())
+                            this.categoriaProdutos.push(upperCase)
+                        }
                     })
                 }
             })
@@ -180,6 +194,9 @@ export class adminPage {
                     novaCategoria.value = `${categoria}`
                 // }
             });
+        })
+        .then(() =>{
+            
         })
     }
 
@@ -219,8 +236,6 @@ export class adminPage {
         const descricaoProduto               = document.querySelector('input[name="descricaoProduto"]')
         const valorProduto                   = document.querySelector('input[name="valorProduto"]')
         const imagemProduto                  = document.querySelector('input[name="imagemProduto"]')
-        // const categoriaCustomizada           = categoriaInedita.value
-        
         
         const data = {
             "nome": `${nomeProduto.value}`,
@@ -241,7 +256,6 @@ export class adminPage {
             }
         }
         
-    
         fetch(`${this.API_URL}my/products`, {
             "method": "POST",
             "headers": {
@@ -264,6 +278,7 @@ export class adminPage {
                         adminPage.collection[z].setAttribute("class", "categoriasVitrine")
                     }
                 }
+                AdminAPI.produtos([data])
             } else {
                 window.alert("Erro!")
             }
@@ -275,4 +290,4 @@ export const cadastrarProdutoCategorias        = document.getElementById("cadast
 export const botoesCategoria                   = document.getElementById("botoesCategoria");
 export const cadastrarProdutoModal             = document.getElementById("cadastrarProdutoModal");
 export const categoriasEscolhidas              = []
-export const categoriaInedita                  = document.getElementById("categoriaInedita")
+// export const categoriaInedita                  = document.getElementById("categoriaInedita")
