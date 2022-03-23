@@ -3,6 +3,10 @@ export class CardProduto{
     static vitrineCard = document.getElementById('vitrineProdutos')
 
     static templateCard(arrayProdutos){
+<<<<<<< Updated upstream
+=======
+        this.vitrineCard.innerHTML=""
+>>>>>>> Stashed changes
         
         arrayProdutos.forEach(({categoria, descricao, imagem, nome, id}) => {
             const containerCard = document.createElement('div')
@@ -31,6 +35,19 @@ export class CardProduto{
                     </button>
                 </div>
         `
+<<<<<<< Updated upstream
+=======
+        setTimeout(() => {
+            const categoriaCard = document.getElementById(`${id}`)
+            categoriaCard.innerHTML=""
+            categoriaCardProduto.forEach((categoria) => {
+                let categoriaTitle = document.createElement("h3")
+                categoriaTitle.innerText=categoria
+                categoriaCard.appendChild(categoriaTitle)
+            })
+        },500)
+
+>>>>>>> Stashed changes
         this.vitrineCard.appendChild(containerCard)
 
         })
