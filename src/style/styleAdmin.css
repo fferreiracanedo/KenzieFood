@@ -183,7 +183,8 @@ header {
     margin-bottom: 5px;
 }
 
-#cadastrarProdutoCategorias {
+#cadastrarProdutoCategorias,
+#editarProdutoCategorias {
     display: flex;
     justify-content: flex-start;
     overflow: auto;
@@ -206,7 +207,6 @@ header {
     width: fit-content;
     padding: 0px 20px;
     height: 40px;
-    margin: 4px;
 }
 
 #cadastrarProdutoCategorias .categoriasVitrine:hover, .categoriasVitrine:hover, .categoriaSelected, .categoriaProdutoSelected {
@@ -234,7 +234,7 @@ header {
 .categoriasVitrine, .categoriaSelected, .categoriaProdutoSelected {
     display: flex;
     align-items: center;
-    height: 48px;
+    height: 40px;
     width: fit-content;
     font-family: "Inter";
     font-style: normal;
@@ -246,6 +246,7 @@ header {
     margin-right: 3px;
     padding: 0px 20px;
     cursor: pointer;
+    line-height: 19px;
 }
 
 .categoriasVitrine:hover, .categoriaSelected, .categoriaProdutoSelected {
@@ -270,12 +271,12 @@ header {
     width: fit-content;
     padding: 0px 20px;
     height: 40px;
-    margin: 4px;
 }
 
 .categoriaProdutoSelected {
     height: 40px;
-    margin: 4px;
+    margin-bottom: 20px;
+    margin-right: 3px;
 }
 /* TABELA CARDS */
 
@@ -347,21 +348,24 @@ header {
 }
 
 #cadastrarProdutoCategorias::-webkit-scrollbar,
-#botoesCategoria::-webkit-scrollbar {
+#botoesCategoria::-webkit-scrollbar,
+#editarProdutoCategorias::-webkit-scrollbar {
     width: 1px;
     height: 10px;
 }
 
 .infoCategorias::-webkit-scrollbar-track, 
 #cadastrarProdutoCategorias::-webkit-scrollbar-track,
-#botoesCategoria::-webkit-scrollbar-track {
+#botoesCategoria::-webkit-scrollbar-track,
+#editarProdutoCategorias::-webkit-scrollbar-track {
     box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
     border-radius: 10px;
 }
    
 .infoCategorias::-webkit-scrollbar-thumb, 
 #cadastrarProdutoCategorias::-webkit-scrollbar-thumb,
-#botoesCategoria::-webkit-scrollbar-thumb {
+#botoesCategoria::-webkit-scrollbar-thumb,
+#editarProdutoCategorias::-webkit-scrollbar-thumb {
     background-color: #FF2253;
     border-radius: 10px;
 }
@@ -408,6 +412,7 @@ header {
     align-items: center;
     justify-content: center;
     border: none;
+    cursor: pointer;
 }
 
 .infoAcoes button svg{
@@ -517,8 +522,7 @@ body{
     flex-direction: column;
 
     height: 96px;
-    margin-top: 40px;
-
+    margin: 20px 0px;
 }
 
 .modalEditarProdutoCarrinho__containerValorProduto{
@@ -642,8 +646,8 @@ body{
     align-items: center;
 
     width: 440px;
-    height: 60px;
-    margin-top: 40px;
+    height: fit-content;
+    margin-top: 10px;
 
 }
 .modalEditarProdutoCarrinho__categoria h3{
@@ -715,6 +719,7 @@ color: #F8F9FA;
     border: 1.5px solid #FF2253;
     background-color: #FF2253;
     color: #F8F9FA;
+    cursor: pointer;
 }
 .modalEditarProdutoCarrinho--hide{
     display: none;
@@ -818,4 +823,72 @@ color: #F8F9FA;
 
 #logoKenzieFood{
     margin: 0 48px;
+}
+
+body{
+    font-family: 'Poppins', sans-serif;
+
+}
+
+#modal-delete{
+    position: absolute;
+    top: -2px;
+    left: -225px;
+    height: 283px;
+    width: 491px;
+    border-radius: 8px 8px 8px 8px;
+    margin-top: 52px;
+    margin-bottom: 527px;
+    /* margin-right: 696px; */
+    margin-left: 676px;
+    background-color: #FFFFFF;
+
+}
+
+#opcao-sair{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.titulo-delete{
+    margin-top: 25px;
+    margin-bottom: 25px;
+    margin-left: 28px;
+}
+  
+  
+#sair{
+    color: #868E96;
+    border: none;
+    width: 31px;
+    height: 30px;
+    margin-right: 20px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+  
+  
+#delete-info>h2{
+    margin-top: 50px;
+    margin-right: 71px;
+    margin-left: 69px;
+    font-size: 16px;
+    font-weight: 500;
+    font-style: normal;
+    width: 369px;
+}
+  
+  
+  
+.btn-style-modal-delete{
+    border-radius: 32px;
+    color: #868E96;
+    border: none;
+    margin-bottom: 35px;
+    margin-top: 49px;
+    margin-left: 28px;
+    width: 210px;
+    height: 52px;
+
 }
