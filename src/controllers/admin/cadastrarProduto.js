@@ -1,4 +1,5 @@
 import { AdminAPI }                     from "./adminAPI.js";
+import { AddEventListener } from "./filtros.js";
 
 export class adminPage {
     static excluirProdutoModal      = document.getElementById("modal-delete")
@@ -78,6 +79,7 @@ export class adminPage {
         .then(() =>{
             
         })
+        
     }
 
     static async habilitarSelecaoCategorias(area){
@@ -153,6 +155,13 @@ export class adminPage {
                 descricaoProduto.value = ""
                 valorProduto.value = ""
                 imagemProduto.value = ""
+                const vitrineBotoes = document.getElementById('botoesCategoria') 
+
+                vitrineBotoes.innerHTML = `
+                <button id="btnTodos" style="background: #efefef;margin-top: 0;">Todos</button>
+                `
+                AddEventListener.colocarADD()
+                adminPage.carregarCategorias("my/products", botoesCategoria, "Nav")
                 for (let z = 0; z < adminPage.collection.length; z++){
                     if (adminPage.collection[z].id.includes("CadastroButton")){
                         adminPage.collection[z].setAttribute("class", "categoriasVitrine")
@@ -292,6 +301,14 @@ export class adminPage {
                     adminPage.categoriasEscolhidas.length = 0
                     adminPage.fecharModal(adminPage.excluirProdutoModal)
                     AdminAPI.produtos()
+                    const vitrineBotoes = document.getElementById('botoesCategoria') 
+
+                    vitrineBotoes.innerHTML = `
+                    <button id="btnTodos" style="background: #efefef;margin-top: 0;">Todos</button>
+                    `
+                    adminPage.carregarCategorias("my/products", botoesCategoria, "Nav")
+                    AddEventListener.colocarADD()
+
                 } else {
                     notificationPopupTexto.innerHTML=`<p>Ocorreu algum erro. Produto não excluído!</p>`
                     notificationPopupColor.style.backgroundColor = "#fc0303"

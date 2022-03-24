@@ -868,6 +868,10 @@ color: #F8F9FA;
     height: 68px;
     margin-top: 40px;
 }
+#divBotoes{
+    display: flex;
+    width: 90%;
+}
 
 @media (max-width: 480px){
 
@@ -971,6 +975,10 @@ color: #F8F9FA;
         width: 357px;
         height: 96px;
         margin-top: 10px;
+    }
+    #divBotoes{
+        display: flex;
+        width: 23%;
     }
     #adicionarProduto, #cadastrarProdutoButton {
         background-color: #FF2253;
