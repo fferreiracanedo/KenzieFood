@@ -1,4 +1,3 @@
-
 import { LocalStorage }                 from "../localStorage.js";
 import { AdminAPI }                     from "./adminAPI.js";
 import { adminPage }                    from "./cadastrarProduto.js"
@@ -21,7 +20,6 @@ const spanCadastrarProdutoModal         = document.getElementsByClassName("close
 const spanEditarProdutoModal            = document.getElementsByClassName("close")[1];
 const cadastrarProdutoForm              = document.getElementById("cadastrarProdutoForm");
 const cadastrarProdutoButton            = document.getElementById("cadastrarProdutoButton")
-export const editarProdutoCategorias    = document.getElementById("editarProdutoCategorias");
 
 cadastrarProdutoButton.                 addEventListener("click", (e)=>{
     e.preventDefault()
@@ -35,7 +33,7 @@ adicionarProduto.                       addEventListener("click", (evt) => {
 adicionarProduto.addEventListener("click", () => {
     cadastrarProdutoCategorias.innerHTML=""
     adminPage.carregarCategorias("my/products", cadastrarProdutoCategorias, "Cadastro")
-    setTimeout(() => adminPage.habilitarSelecaoCategorias("Cadastro"), 800)
+    setTimeout(() => adminPage.habilitarSelecaoCategorias("Cadastro"), 1000)
     setTimeout(() => adminPage.gerarCustomizarCategoria(), 100)
     setTimeout(() => {
         adminPage.categoriaInedita.addEventListener("keyup", () => {

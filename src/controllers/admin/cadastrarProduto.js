@@ -1,6 +1,7 @@
 import { AdminAPI }                     from "./adminAPI.js";
-import { editarProdutoCategorias }      from "./scriptAdmin.js"
+
 export class adminPage {
+    static editarProdutoCategorias  = document.getElementById("editarProdutoCategorias");
     static API_URL                  = 'https://kenzie-food-api.herokuapp.com/'
     static categoriaProdutos        = [];
     static categoriasEscolhidas     = [];
@@ -294,7 +295,7 @@ export class adminPage {
     }
 
     static async editarProdutoExistente (idProduto){
-        editarProdutoCategorias.innerHTML=""
+        adminPage.editarProdutoCategorias.innerHTML=""
         const UserToken = localStorage.getItem('key').replaceAll(`"`, ``)
         adminPage.abrirModal(editarProdutoModal)
         setTimeout(() => adminPage.habilitarSelecaoCategorias("Edicao"), 900)
@@ -314,7 +315,7 @@ export class adminPage {
         .then((res) => res.json())
         .then((res) => res)
         .then((res) => {
-            adminPage.carregarCategorias("my/products", editarProdutoCategorias, "Edicao")
+            adminPage.carregarCategorias("my/products", adminPage.editarProdutoCategorias, "Edicao")
             res.forEach((produto) => {
                 if (idProduto === produto.id){
                     nomeProduto.value = produto.nome;
@@ -383,4 +384,5 @@ export const notificationPopupColor            = document.getElementsByClassName
 export const editarProdutoModal                = document.getElementById("editarProdutoModal")
 export const salvarEdicaoButton                = document.getElementById("salvarEdicaoButton")
 export const categoriasEscolhidas              = []
+
 // export const categoriaInedita                  = document.getElementById("categoriaInedita")
