@@ -236,13 +236,12 @@ img:hover {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    justify-content: space-between;
     margin-top: 20px;
 }
 
 .cardProduto {
     width: 270px;
-    margin-bottom: 30px;
+    margin: 0 20px 20px 2px;
 }
 
 #produtoNome {

@@ -326,6 +326,7 @@ export class adminPage {
         })
         .then(() => {
             salvarEdicaoButton.addEventListener("click", function (evt){
+                console.log(evt)
                 evt.preventDefault()
 
                 let data = ''

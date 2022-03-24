@@ -1,3 +1,4 @@
+import { PesquisaDinamica } from "../home/campoPesquisa.js";
 import { LocalStorage }                 from "../localStorage.js";
 import { AdminAPI }                     from "./adminAPI.js";
 import { adminPage }                    from "./cadastrarProduto.js"
@@ -14,7 +15,13 @@ LocalStorage.getLocalStorageAutenticadorAdmin()
 
 AdminAPI.produtos()
 const arrProd = await AdminAPI.produtos()
-console.log(arrProd)
+// FILTRO PESQUISA
+const filtrarPesquisa = document.getElementById('pesquisa')
+filtrarPesquisa.addEventListener('keyup', (e) => {
+    const pesquisa = e.target.value
+    PesquisaDinamica.filtroPesquisaTeclas(arrProd,pesquisa)
+})
+
 
 setTimeout(() => {
     const botoesFiltro = document.querySelectorAll(".categoriasVitrine")
