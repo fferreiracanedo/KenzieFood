@@ -15,13 +15,15 @@ export class Carrinho {
           cardProduto.id = `${id}`
 
           cardProduto.innerHTML = `
-              <img src="${imagem}"></img>
-              <p id="produtoCategoria">${categoria}</p>
-              <h2 id="produtoNome">${nome}</h2>
-              <div id="precoBtn">
-              <h4 id="produtoPreco">R$${preco}</h4>
-              <button class="tirarCarrinho" id="btnTirarCarrinho">-</button>
-              </div>
+          <div class="cardCarrinho">
+          <img id="imgCarrinho" src="${imagem}"></img>
+          <div class="descricaoItens">
+          <p id="produtoCategoriaCarrinho">${categoria}</p>
+          <h2 id="produtoNomeCarrinho">${nome}</h2>
+          <h4 id="produtoPrecoCarrinho">R$${preco}</h4>
+          </div>
+          <button class="tirarCarrinho" id="btnTirarCarrinho">X</button>
+          </div>
           `;          
           this.vitrineCarrinho.appendChild(cardProduto);
         }) 
@@ -124,12 +126,14 @@ export class Carrinho {
       cardProduto.id = `c${id}`
 
       cardProduto.innerHTML = `
-          <img src="${imagem}"></img>
-          <p id="produtoCategoria">${categoria}</p>
-          <h2 id="produtoNome">${nome}</h2>
-          <div id="precoBtn">
-          <h4 id="produtoPreco">R$${preco}</h4>
-          <button class="tirarCarrinho" id="btnTirarCarrinho">-</button>
+        <div class="cardCarrinho">
+          <img id="imgCarrinho" src="${imagem}"></img>
+          <div class="descricaoItens">
+          <p id="produtoCategoriaCarrinho">${categoria}</p>
+          <h2 id="produtoNomeCarrinho">${nome}</h2>
+          <h4 id="produtoPrecoCarrinho">R$${preco}</h4>
+          </div>
+          <button class="tirarCarrinho" id="btnTirarCarrinho">X</button>
           </div>
       `;          
       this.vitrineCarrinho.appendChild(cardProduto);
