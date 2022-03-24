@@ -1,22 +1,25 @@
 import { AdminAPI }                     from "./adminAPI.js";
 
 export class adminPage {
+<<<<<<< HEAD
     static editarProdutoCategorias  = document.getElementById("editarProdutoCategorias");
+=======
+    static editarProdutoCategorias  = document.getElementById("editarProdutoCategorias");    
+>>>>>>> 96c32f6b09051aa8d9c258e20e5222ae7776558d
     static API_URL                  = 'https://kenzie-food-api.herokuapp.com/'
     static categoriaProdutos        = [];
     static categoriasEscolhidas     = [];
     static collection               = document.getElementsByTagName("input")
-    static categoriasEscolhidas     = []
     static categoriaCustomizada     = ""
     static categoriaInedita         = ""
     static categoriaMainPage        = []
 
-    static cadastrarProduto (){
-        cadastrarProdutoModal.style.display = "flex";
+    static abrirModal (modal){
+        modal.style.display = "flex";
     }
 
-    static fecharModal (){
-        cadastrarProdutoModal.style.display = "none";
+    static fecharModal (modal){
+        modal.style.display = "none";
     }
 
     static async gerarCustomizarCategoria(){
@@ -204,12 +207,12 @@ export class adminPage {
         })
     }
 
-    static async habilitarSelecaoCategorias(){
+    static async habilitarSelecaoCategorias(area){
         adminPage.categoriasEscolhidas.length = 0
         for (let i = 0; i < adminPage.collection.length; i++) {
-            if (adminPage.collection[i].id.includes("CadastroButton")){
+            if (adminPage.collection[i].id.includes(`${area}Button`)){
                 adminPage.collection[i].addEventListener("click", (event) => {
-
+                    
                     const categoriaProdutoClicado = event.target.value
                     if (!adminPage.categoriasEscolhidas.includes(categoriaProdutoClicado)){
                         adminPage.categoriasEscolhidas.push(categoriaProdutoClicado)
@@ -247,7 +250,6 @@ export class adminPage {
             "categoria": `${adminPage.categoriasEscolhidas.toString()}`,
             "imagem": `${imagemProduto.value}`,
             "descricao" : `${descricaoProduto.value}`,
-
         }
 
         if (adminPage.categoriaCustomizada !== ""){
@@ -271,10 +273,15 @@ export class adminPage {
         .then((res) => {
             notificationPopup.setAttribute("class", "notification-popup")
             if (res.status === 201){
+<<<<<<< HEAD
             notificationPopupTexto.innerHTML=`<p>Produto Adicionado com sucesso!</p>`
             notificationPopupColor.style.backgroundColor = "#39DF8F"
+=======
+                notificationPopupTexto.innerHTML=`<p>Produto Adicionado com sucesso!</p>`
+                notificationPopupColor.style.backgroundColor = "#39DF8F"
+>>>>>>> 96c32f6b09051aa8d9c258e20e5222ae7776558d
                 adminPage.categoriasEscolhidas.length = 0
-                adminPage.fecharModal()
+                adminPage.fecharModal(cadastrarProdutoModal)
                 nomeProduto.value = ""
                 descricaoProduto.value = ""
                 valorProduto.value = ""
@@ -288,6 +295,7 @@ export class adminPage {
             } else {
                 notificationPopupTexto.innerHTML=`<p>Ocorreu algum erro. Produto não adicionado!</p>`
                 notificationPopupColor.style.backgroundColor = "#fc0303"
+<<<<<<< HEAD
             }
             setTimeout(() => {
                 notificationPopup.setAttribute("class", "notification-popup--hide")
@@ -313,8 +321,106 @@ export class adminPage {
             "headers": {
                 "Content-Type": "application/json",
                 "Authorization": `Bearer ${UserToken}`
+=======
+>>>>>>> 96c32f6b09051aa8d9c258e20e5222ae7776558d
+            }
+            setTimeout(() => {
+                notificationPopup.setAttribute("class", "notification-popup--hide")
+            },5000)
+
+        })
+    }
+
+    static async editarProdutoExistente (idProduto){
+        adminPage.editarProdutoCategorias.innerHTML=""
+        const UserToken = localStorage.getItem('key').replaceAll(`"`, ``)
+        adminPage.abrirModal(editarProdutoModal)
+        setTimeout(() => adminPage.habilitarSelecaoCategorias("Edicao"), 900)
+
+        const nomeProduto       = editarProdutoModal.querySelector('input[name="nomeProduto"]')
+        const descricaoProduto  = editarProdutoModal.querySelector('textarea[name="descricaoProduto"]')
+        const valorProduto      = editarProdutoModal.querySelector('input[name="valorProduto"]')
+        const imagemProduto     = editarProdutoModal.querySelector('input[name="imagemProduto"]')
+
+        fetch(`https://kenzie-food-api.herokuapp.com/my/products`, {
+            "method": "GET",
+            "headers": {
+                "Content-Type": "application/json",
+                "Authorization": `Bearer ${UserToken}`
             }
         })
+        .then((res) => res.json())
+        .then((res) => res)
+        .then((res) => {
+            adminPage.carregarCategorias("my/products", adminPage.editarProdutoCategorias, "Edicao")
+            res.forEach((produto) => {
+                if (idProduto === produto.id){
+                    nomeProduto.value = produto.nome;
+                    descricaoProduto.value = produto.descricao
+                    valorProduto.value = produto.preco 
+                    imagemProduto.value = produto.imagem
+                }
+            })
+        })
+        .then(() => {
+            salvarEdicaoButton.addEventListener("click", function (evt){
+                console.log(evt)
+                evt.preventDefault()
+
+                let data = ''
+                if (adminPage.categoriasEscolhidas.length === 0){
+                    data = {
+                        "nome": `${nomeProduto.value}`,
+                        "preco": valorProduto.value,
+                        "imagem": `${imagemProduto.value}`,
+                        "descricao" : `${descricaoProduto.value}`,
+                    }
+                } else {
+                    data = {
+                        "nome": `${nomeProduto.value}`,
+                        "preco": valorProduto.value,
+                        "categoria": `${adminPage.categoriasEscolhidas.toString()}`,
+                        "imagem": `${imagemProduto.value}`,
+                        "descricao" : `${descricaoProduto.value}`,
+                    }
+                }
+
+                fetch(`https://kenzie-food-api.herokuapp.com/my/products/${idProduto}`, {
+                    "method": "PATCH",
+                    "headers": {
+                        "Content-Type": "application/json",
+                        "Authorization": `Bearer ${UserToken}`
+                    },
+                    "body": JSON.stringify(data),
+                })
+                .then((res) => {
+                    notificationPopup.setAttribute("class", "notification-popup")
+                    if (res.status === 202){
+                        notificationPopupTexto.innerHTML=`<p>Produto Atualizado com sucesso!</p>`
+                        notificationPopupColor.style.backgroundColor = "#39DF8F"
+                        adminPage.categoriasEscolhidas.length = 0
+                        adminPage.fecharModal(editarProdutoModal)
+                        nomeProduto.value = ""
+                        descricaoProduto.value = ""
+                        valorProduto.value = ""
+                        imagemProduto.value = ""
+                        for (let z = 0; z < adminPage.collection.length; z++){
+                            if (adminPage.collection[z].id.includes("EdicaoButton")){
+                                adminPage.collection[z].setAttribute("class", "categoriasVitrine")
+                            }
+                        }
+                        AdminAPI.produtos()
+                    } else {
+                        notificationPopupTexto.innerHTML=`<p>Ocorreu algum erro. Produto não editado!</p>`
+                        notificationPopupColor.style.backgroundColor = "#fc0303"
+                    }
+                    setTimeout(() => {
+                        notificationPopup.setAttribute("class", "notification-popup--hide")
+                    },5000)
+                })
+            })
+        })
+<<<<<<< HEAD
         .then((res) => res.json())
         .then((res) => res)
         .then((res) => {
@@ -375,7 +481,37 @@ export class adminPage {
                 })
             })
         })
+=======
+    }
 
+    static async excluirProdutoExistente (idProduto) {
+        const UserToken = localStorage.getItem('key').replaceAll(`"`, ``)
+        // adminPage.abrirModal(excluirProdutoModal)
+>>>>>>> 96c32f6b09051aa8d9c258e20e5222ae7776558d
+
+        fetch(`https://kenzie-food-api.herokuapp.com/my/products/${idProduto}`, {
+            "method": "DELETE",
+            "headers": {
+                "Content-Type": "application/json",
+                "Authorization": `Bearer ${UserToken}`
+            }
+        })
+        .then(() => {
+            notificationPopup.setAttribute("class", "notification-popup")
+                    if (res.status === 204){
+                        notificationPopupTexto.innerHTML=`<p>Produto Excluído com sucesso!</p>`
+                        notificationPopupColor.style.backgroundColor = "#39DF8F"
+                        adminPage.categoriasEscolhidas.length = 0
+                        // adminPage.fecharModal(excluirProdutoModal)
+                        AdminAPI.produtos()
+                    } else {
+                        notificationPopupTexto.innerHTML=`<p>Ocorreu algum erro. Produto não excluído!</p>`
+                        notificationPopupColor.style.backgroundColor = "#fc0303"
+                    }
+                    setTimeout(() => {
+                        notificationPopup.setAttribute("class", "notification-popup--hide")
+                    },5000)
+        })
     }
 
 }
@@ -385,6 +521,7 @@ export const cadastrarProdutoModal             = document.getElementById("cadast
 export const notificationPopup                 = document.getElementById("notificationPopup")
 export const notificationPopupTexto            = document.getElementsByClassName("notification-popup__corpo")[0]
 export const notificationPopupColor            = document.getElementsByClassName("notification-popup__status")[0]
+<<<<<<< HEAD
 export const categoriasEscolhidas              = []
 
 
@@ -392,3 +529,8 @@ export const categoriasEscolhidas              = []
 
 // export const categoriaInedita                  = document.getElementById("categoriaInedita")
 
+=======
+export const editarProdutoModal                = document.getElementById("editarProdutoModal")
+export const salvarEdicaoButton                = document.getElementById("salvarEdicaoButton")
+export const categoriasEscolhidas              = []
+>>>>>>> 96c32f6b09051aa8d9c258e20e5222ae7776558d

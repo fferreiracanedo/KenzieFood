@@ -58,6 +58,13 @@ header {
     cursor: pointer;
 }
 
+#produtoCategoriaCarrinho{
+    max-width: 10ch;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
 #sairPesquisa a{
     border: none;
     background: none;
@@ -236,13 +243,12 @@ img:hover {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    justify-content: space-between;
     margin-top: 20px;
 }
 
 .cardProduto {
     width: 270px;
-    margin-bottom: 30px;
+    margin: 0 20px 20px 2px;
 }
 
 #produtoNome {
@@ -334,6 +340,7 @@ img:hover {
     margin-left: -15px;
     position: relative;
     top: -10px;
+    width: 100px;
 }
 
 #imgCarrinho {
@@ -386,6 +393,7 @@ img:hover {
         width: 100vw;
         display: inline-block;
     }
+    
     #content {
         width: 85vw;
     }
@@ -408,6 +416,7 @@ img:hover {
     #vitrinePrincipal {
         margin: 0 auto;
         width: 75vw;
+        padding: 0 0 230px 0;
     }
 
     #vitrineCarrinho {
