@@ -104,14 +104,9 @@ img:hover {
 
 #vitrinePrincipal {
     flex-grow: 2;
-}
-
-#vitrineCarrinho {
-    width: 250px;
-    display: flex;
-    flex-direction: column;
     
 }
+
 
 
 #carrinhoTexto {
@@ -283,4 +278,162 @@ img:hover {
     border-radius: 50%;
     border:none;
     background-color: rgba(0, 128, 0, 0.228);
+}
+
+#vitrineCarrinho {
+    width: 250px;
+    display: flex;
+    flex-direction:column;
+    justify-content: space-between;
+}
+
+
+
+.cardCarrinho {
+    margin-bottom: -30px;
+    height: 100px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    
+}
+
+.descricaoItens {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 40px;
+    margin-left: -15px;
+    position: relative;
+    top: -10px;
+}
+
+#imgCarrinho {
+    width: 90px;
+    height: 60px;
+    border-radius: 10px;
+}
+
+#produtoNomeCarrinho {
+    margin-top: -30px;
+    font-family: "Poppins";
+    font-style: normal;
+    font-size: 15px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    max-width: 10ch;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+#produtoCategoriaCarrinho {
+    font-family: "Poppins";
+    font-style: normal;
+    font-weight: 300;
+    font-size: 12px;
+    color: #868e96;
+}
+
+#produtoPrecoCarrinho {
+    font-family: "Poppins";
+    font-style: normal;
+    font-weight: 300;
+    font-size: 14px;
+}
+
+#btnTirarCarrinho {
+    border: none;
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+    color: #868E96;
+    background-color:#F8F9FA;
+}
+
+@media (max-width: 480px) {
+    main {
+        width: 100vw;
+        display: inline-block;
+    }
+    #content {
+        width: 75vw;
+    }
+
+    #pesquisa {
+        width: 21vw;
+    }
+
+    #vitrinePrincipal {
+        margin: 0 auto;
+        width: 75vw;
+    }
+
+    #vitrineCarrinho {
+        height: 100px;
+        min-width: 100vw;
+        display: flex;
+        flex-direction: row;
+        background-color: #ffffff;
+        overflow-x: scroll;
+    }
+
+
+    .cardCarrinho {
+        margin-top: 10px;
+        margin-left: 5px;
+        height: 50px;  
+        width: 100vw;
+    }
+
+    #carrinho {
+        position: fixed;
+        bottom: 0;
+        z-index: 2;
+    }
+
+    .descricaoItens {
+        width: 0px;
+        margin-left: -30px;
+    }
+
+    #imgCarrinho {
+        width: 75px;
+        height: 50px;
+        border-radius: 10px;
+    }
+
+    .cardCarrinho h2 {
+        font-size: 12px;
+    }
+
+    .cardCarrinho p {
+        font-size: 10px;
+    }
+
+    .cardCarrinho h4 {
+        font-size: 11px;
+    }
+
+    #carrinhoTexto {
+        height: 7px;
+    }
+
+
+    #qtdCarrinho p,
+    #totalCarrinho p {
+        line-height: 10px;
+        font-size: 0.8rem;
+    }
+
+    #sairPesquisa button {
+        font-size: 11px;
+        position: relative;
+    }
+
+    .categoriaVitrine {
+        line-height: 20px;
+    }
 }
