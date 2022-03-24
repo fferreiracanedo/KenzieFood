@@ -1,4 +1,5 @@
 import { AdminAPI }                     from "./adminAPI.js";
+
 export class adminPage {
     static excluirProdutoModal      = document.getElementById("modal-delete")
     static editarProdutoCategorias  = document.getElementById("editarProdutoCategorias");    
@@ -441,6 +442,7 @@ export class adminPage {
             },5000)
         })
     }
+
 }
 export const cadastrarProdutoCategorias        = document.getElementById("cadastrarProdutoCategorias");
 export const botoesCategoria                   = document.getElementById("botoesCategoria");
