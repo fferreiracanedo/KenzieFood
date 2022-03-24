@@ -329,7 +329,6 @@ img:hover {
 .descricaoItens {
     display: flex;
     flex-direction: column;
-    align-items: center;
     justify-content: space-between;
     margin-top: 40px;
     margin-left: -15px;
@@ -388,11 +387,22 @@ img:hover {
         display: inline-block;
     }
     #content {
-        width: 75vw;
+        width: 85vw;
     }
 
     #pesquisa {
-        width: 21vw;
+        width: 3px;
+    }
+
+    #barraDePesquisa {
+        position:relative;
+        height: 20px;
+        width: 45px;
+        top: 2px;
+    }
+
+    #botaoPesquisar {
+        margin-right: 3px;
     }
 
     #vitrinePrincipal {
@@ -424,8 +434,9 @@ img:hover {
     }
 
     .descricaoItens {
-        width: 0px;
-        margin-left: -30px;
+        margin-left: -70px;
+        align-items: left;
+        justify-content: start;
     }
 
     #imgCarrinho {
@@ -458,12 +469,40 @@ img:hover {
     }
 
     #sairPesquisa button {
-        font-size: 11px;
+        font-size: 10px;
         position: relative;
+        color: #868e96;
     }
 
-    .categoriaVitrine {
-        line-height: 20px;
+    #botoesCategoria {
+        margin-left: 10px;
+        margin-bottom: 10px;
+    }
+
+    #botoesCategoria::-webkit-scrollbar {
+        height: 5px;
+    }
+    #sairCadastrar {
+        line-height: 2px;
+        display:flex;
+        flex-direction: column;
+        align-items: flex-end;
+        line-height: 10px;
+    }
+
+    #sairCadastrar a{
+        visibility: hidden;
+    }
+    #sairCadastrar a:after {
+        visibility: visible;
+        content: "Cadastrar";
+        font-size: 10px;
+       
+        color: #868e96;
+    }
+
+    #btnTirarCarrinho {
+        margin-left: -60px;
     }
 
 
