@@ -428,7 +428,10 @@ export class adminPage {
             })
         })
 
-
+        const botaofecharPopup = document.getElementsByClassName("botaoFecharPopup")[0]
+        function fecharPop(){
+            notificationPopup.setAttribute("class", "notification-popup--hide")
+        }
         excluirProdutoNao.addEventListener("click", (evt) => {
             evt.preventDefault()
             notificationPopup.setAttribute("class", "notification-popup")
@@ -436,9 +439,13 @@ export class adminPage {
             notificationPopupColor.style.backgroundColor = "#FFDA29"
             adminPage.categoriasEscolhidas.length = 0
             adminPage.fecharModal(adminPage.excluirProdutoModal)
-
+            console.log(notificationPopup)
+            console.log(botaofecharPopup)
+            botaofecharPopup.addEventListener("click", fecharPop)
             setTimeout(() => {
                 notificationPopup.setAttribute("class", "notification-popup--hide")
+               
+
             },5000)
         })
     }
