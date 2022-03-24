@@ -40,7 +40,8 @@ export class ApiPublica {
             </svg>
             </button>
 
-`; this.vitrine.appendChild(cardProduto);
+`
+ this.vitrine.appendChild(cardProduto);
         })
 
     }
