@@ -83,6 +83,7 @@
             </section>
         </article>
     </main>
+
     <div class="modalEditarCarrinhoContainerOverlay modalEditarProdutoCarrinho--hide">
         <div class="modalEditarProdutoCarrinho">
             <div class="modalEditarProdutoCarrinho__cabecalho">
@@ -139,16 +140,17 @@
             </div>
         </div>
     </div>
-    <div class="notification-popup notification-popup--hide">
+
+    <div class="notification-popup notification-popup--hide" id="notificationPopup">
+
         <div class="notification-popup__cabecalho">
             <h2>Status</h2>
             <span>x</span>
         </div>
-        <div class="notification-popup__corpo">
-            <p>Produto adicionado com sucesso</p>
-        </div>
 
-        <div class="notification-popup__status notification-popup__status--bg-color"></div>
+        <div class="notification-popup__corpo"></div>
+
+        <div class="notification-popup__status"></div>
     </div>
 
     <script type="module" src="../controllers/admin/scriptAdmin.js"></script>

@@ -7,6 +7,7 @@ export class adminPage {
     static categoriasEscolhidas     = []
     static categoriaCustomizada     = ""
     static categoriaInedita         = ""
+    static categoriaMainPage        = []
 
     static cadastrarProduto (){
         cadastrarProdutoModal.style.display = "flex";
@@ -157,6 +158,7 @@ export class adminPage {
         .then((res) => res.json())
         .then((res) => {
             res.forEach((produto) => {
+                this.categoriaMainPage.push(produto.categoria)
                 if (produto.categoria.includes(', ')){
                     let arr = produto.categoria.split(', ')
                     arr.forEach((novoProduto) => {
@@ -265,8 +267,10 @@ export class adminPage {
         "body": JSON.stringify(data),
         })
         .then((res) => {
-            console.log(res.status)
+            notificationPopup.setAttribute("class", "notification-popup")
             if (res.status === 201){
+            notificationPopupTexto.innerHTML=`<p>Produto Adicionado com sucesso!</p>`
+            notificationPopupColor.style.backgroundColor = "#39DF8F"
                 adminPage.categoriasEscolhidas.length = 0
                 adminPage.fecharModal()
                 nomeProduto.value = ""
@@ -278,16 +282,23 @@ export class adminPage {
                         adminPage.collection[z].setAttribute("class", "categoriasVitrine")
                     }
                 }
-                AdminAPI.produtos([data])
+                AdminAPI.produtos()
             } else {
-                window.alert("Erro!")
+                notificationPopupTexto.innerHTML=`<p>Ocorreu algum erro. Produto não adicionado!</p>`
+                notificationPopupColor.style.backgroundColor = "#fc0303"
             }
-        })
+            setTimeout(() => {
+                notificationPopup.setAttribute("class", "notification-popup--hide")
+            },5000)
 
+        })
     }
 }
 export const cadastrarProdutoCategorias        = document.getElementById("cadastrarProdutoCategorias");
 export const botoesCategoria                   = document.getElementById("botoesCategoria");
 export const cadastrarProdutoModal             = document.getElementById("cadastrarProdutoModal");
+export const notificationPopup                 = document.getElementById("notificationPopup")
+export const notificationPopupTexto            = document.getElementsByClassName("notification-popup__corpo")[0]
+export const notificationPopupColor            = document.getElementsByClassName("notification-popup__status")[0]
 export const categoriasEscolhidas              = []
 // export const categoriaInedita                  = document.getElementById("categoriaInedita")
