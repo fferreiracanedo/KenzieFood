@@ -2,7 +2,7 @@
 import { LocalStorage }                 from "../localStorage.js";
 import { AdminAPI }                     from "./adminAPI.js";
 import { adminPage,cadastrarProdutoModal,editarProdutoModal,botoesCategoria,cadastrarProdutoCategorias } from "./cadastrarProduto.js"
-
+console.log('scriptAdmin')
 
 // AUTENTICACAO
 LocalStorage.getLocalStorageAutenticadorAdmin()
