@@ -29,19 +29,13 @@ campoPesquisa.addEventListener("keyup", (e)=> {
 setTimeout(() => {
     const btnTodos = document.querySelector("#btnTodos")
     const inputCategorias = document.querySelectorAll(".categoriasVitrine")
-/*     const btnFrutas = document.querySelector("#frutasNavButton")
-    const btnPanificadora = document.querySelector("#panificadoraNavButton")
-    const btnBebidas = document.querySelector("#bebidasNavButton") */
+
     for(let i = 1; i <  inputCategorias.length ; i++){
         inputCategorias[i].addEventListener("click", ButtoesPesquisa.filtrarCategorias.bind(ButtoesPesquisa))
     }
     
     btnTodos.addEventListener("click", ButtoesPesquisa.filtrarTotal.bind(ButtoesPesquisa))
-   /*  btnFrutas.addEventListener("click", ButtoesPesquisa.filtrarFrutas.bind(ButtoesPesquisa))
-    btnPanificadora.addEventListener("click", ButtoesPesquisa.filtrarPanificadora.bind(ButtoesPesquisa))
-    btnBebidas.addEventListener("click", ButtoesPesquisa.filtrarBebidas.bind(ButtoesPesquisa))
-    */
-   
+
 }, 500);
 //fim 
 

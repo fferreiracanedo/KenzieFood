@@ -1,11 +1,7 @@
 import { ApiPublica } from "./apiPublicaItens.js"
-//import { categoriy} from "./mainPage.js"
 
 const content = await ApiPublica.buscarProdutosApi()
 
-
-/* let arrayProdutos = []
-arrayProdutos.push(content) */
 export class ButtoesPesquisa{
     static arrayProdutos = []
 
@@ -25,9 +21,7 @@ export class ButtoesPesquisa{
 
 
     static filtrarCategorias(event){
-        //setTimeout(() => {
-            /* const inputCategorias = document.getElementsByTagName("input") */
-            
+
             const inputs = event.target
  
             content.filter((produto)=>{
@@ -42,49 +36,9 @@ export class ButtoesPesquisa{
             })
      
         ApiPublica.template(this.arrayProdutos)
-        /* console.log(this.arrayProdutos) */
         this.arrayProdutos = []
         
     }
-
-  /*   static filtrarFrutas(){
-        content.filter((produto)=>{
-            if(produto.categoria === "Frutas"){
-                this.arrayProdutos.push(produto)
-                
-            }
-        })
-
-        console.log(this.arrayProdutos)
-        ApiPublica.template(this.arrayProdutos)
-        this.arrayProdutos = []
-    }
-
-    static filtrarPanificadora(){
-        content.filter((produto)=>{
-            if(produto.categoria === "Panificadora"){
-                this.arrayProdutos.push(produto)
-                
-            }
-        })
-
-        console.log(this.arrayProdutos)
-        ApiPublica.template(this.arrayProdutos)
-        this.arrayProdutos = []
-    }
-
-        static filtrarBebidas(){
-        content.filter((produto)=>{
-            if(produto.categoria === "Bebidas"){
-                this.arrayProdutos.push(produto)
-                
-            }
-        })
-
-        console.log(this.arrayProdutos)
-        ApiPublica.template(this.arrayProdutos)
-        this.arrayProdutos = []
-    }  */
  
 }
  
