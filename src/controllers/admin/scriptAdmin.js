@@ -1,4 +1,3 @@
-
 import { LocalStorage }                 from "../localStorage.js";
 import { AdminAPI }                     from "./adminAPI.js";
 import { adminPage }                    from "./cadastrarProduto.js"
