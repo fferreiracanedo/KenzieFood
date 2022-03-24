@@ -29,10 +29,15 @@ export class RegistroAPI {
             .then((req) => {
                 if (req.status == 'Error') {
                     window.location.href = '../pages/register.html'
-                } else if (req) {
+                }
+                if(req.error){
+                    return
+                }else{
                     LocalStorage.addLocalStorage(req)
                     window.location.href = '../../index.html'
                 }
+
+
             })
 
     }

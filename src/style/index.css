@@ -42,6 +42,7 @@ header {
 
 #sairPesquisa{
     display: flex;
+    align-items: center;
 }
 
 #sairPesquisa button{
@@ -88,6 +89,7 @@ header {
     border: 1.5px solid #e9ecef;
     border-radius: 10px;
     padding: 0.5em;
+    height: 25px;
 }
 
 #botaoPesquisar{
@@ -259,6 +261,10 @@ img:hover {
     font-size: 14px;
     color: #868e96;
     margin-bottom: 20px;
+    max-width: 100ch;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 
 #produtoPreco {
@@ -374,6 +380,8 @@ img:hover {
     background-color:#F8F9FA;
 }
 
+
+
 @media (max-width: 480px) {
     main {
         width: 100vw;
@@ -457,5 +465,7 @@ img:hover {
     .categoriaVitrine {
         line-height: 20px;
     }
+
+
 }
 

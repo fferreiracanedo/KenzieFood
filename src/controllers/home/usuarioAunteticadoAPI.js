@@ -1,3 +1,5 @@
+import { Carrinho } from "./adicionarCarrinho.js"
+
 export class UsuarioAutenticadoAPI{
     
     static API_URL = 'https://kenzie-food-api.herokuapp.com/'
@@ -20,4 +22,5 @@ export class UsuarioAutenticadoAPI{
 
         return this.arrayProdutos.produtos
     }
+
 }

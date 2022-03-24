@@ -20,7 +20,7 @@ export class Carrinho {
           <div class="descricaoItens">
           <p id="produtoCategoriaCarrinho">${categoria}</p>
           <h2 id="produtoNomeCarrinho">${nome}</h2>
-          <h4 id="produtoPrecoCarrinho">R$${preco}</h4>
+          <h4 class="valorProdutoCarrinho" id="produtoPrecoCarrinho">R$${preco}</h4>
           </div>
           <button class="tirarCarrinho" id="btnTirarCarrinho">X</button>
           </div>
@@ -71,6 +71,18 @@ export class Carrinho {
       const no = document.getElementById(`${id}`);
       console.log(no)
       this.vitrineCarrinho.removeChild(no)
+      const valores = document.querySelectorAll('.valorProdutoCarrinho')
+      const qtdCarrinho = document.getElementById('spanQtdCarrinho')
+      const totalCarrinho = document.getElementById('spanValorCarrinho')
+      let valorTotal = 0
+      let comprimento = []
+      valores.forEach((valor) => {
+          const valorAtual = Number(valor.innerText.slice(2))
+          valorTotal   += valorAtual
+          comprimento.push(valor)
+      })
+      qtdCarrinho.innerText = comprimento.length
+      totalCarrinho.innerText = valorTotal 
     }
 
     static adicionarCarrinhoAutenticado(data){
@@ -97,7 +109,13 @@ export class Carrinho {
         },
       })
       .then((request) => request.json())
-      .then((data) => this.arrayProdutos.produtos = data)
+      .then((data) => {
+        this.arrayProdutos.produtos = data
+
+      })
+    
+      console.log(this.arrayProdutos.produtos)
+      this.templateCarrinhoAutenticado(this.arrayProdutos.produtos)
       
       return this.arrayProdutos.produtos
     }
@@ -114,12 +132,12 @@ export class Carrinho {
 
       }) 
       this.templateCarrinhoAutenticado(produtosCarrinho)
+      
   }
 
   static templateCarrinhoAutenticado(array) {
-    console.log(array)
     this.vitrineCarrinho.innerHTML = ""
-    array.forEach(({nome,imagem,categoria,id,preco}) => {
+    array.forEach(({nome,imagem,categoria,id,preco, quantidade}) => {
       const cardProduto = document.createElement("div");
       cardProduto.innerHTML = "";
       cardProduto.classList.add("cardProduto");
@@ -131,13 +149,37 @@ export class Carrinho {
           <div class="descricaoItens">
           <p id="produtoCategoriaCarrinho">${categoria}</p>
           <h2 id="produtoNomeCarrinho">${nome}</h2>
-          <h4 id="produtoPrecoCarrinho">R$${preco}</h4>
+          <h4 class='valorProdutoCarrinho'id="produtoPrecoCarrinho">R$${preco}</h4>
           </div>
           <button class="tirarCarrinho" id="btnTirarCarrinho">X</button>
           </div>
       `;          
       this.vitrineCarrinho.appendChild(cardProduto);
+      
     }) 
+    
 }
 
+  static adicionarCarrinhoDinamic({nome,imagem,categoria,id,preco}){
+    const cardProduto = document.createElement("div");
+    cardProduto.innerHTML = "";
+    cardProduto.classList.add("cardProduto");
+    cardProduto.id = `c${id}`
+
+    cardProduto.innerHTML = `
+      <div class="cardCarrinho">
+        <img id="imgCarrinho" src="${imagem}"></img>
+        <div class="descricaoItens">
+        <p id="produtoCategoriaCarrinho">${categoria}</p>
+        <h2 id="produtoNomeCarrinho">${nome}</h2>
+        <h4  class='valorProdutoCarrinho' id="produtoPrecoCarrinho">R$${preco}</h4>
+        </div>
+        <button class="tirarCarrinho" id="btnTirarCarrinho">X</button>
+        </div>
+    `;          
+    this.vitrineCarrinho.appendChild(cardProduto);
+    
+    RemoverCarrinhar.removerItemCarrinho(this.arrayCarrinhoAutenticado)
+
+  }
 }

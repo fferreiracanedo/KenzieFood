@@ -9,11 +9,11 @@ body{
 /* HEADER */
 header {
     width: 100%;
-    line-height: 70px;
+    height: 80px;
     display: flex;
     flex-direction: row;
-    justify-content: flex-end;
-    box-shadow: 0px 0px 40px -20px rgba(0, 0, 0, 0.25);
+    justify-content: space-between;
+    box-shadow: 0px 0px 40px -20px rgb(0 0 0 / 25%);
     margin-bottom: 30px;
     align-items: center;
 }
@@ -804,4 +804,18 @@ color: #F8F9FA;
 .notification-popup__status{
     height: 8px;
     border-radius: 0px 0px 8px 8px
+}
+#pesquisaFotoPerfil{
+    display: flex;
+    align-items: center;
+}
+
+#fotoPerfilDireita{
+    display: flex;
+    align-items: center;
+    margin: 0 48px 0 20px;
+}
+
+#logoKenzieFood{
+    margin: 0 48px;
 }
