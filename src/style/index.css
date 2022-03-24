@@ -49,9 +49,26 @@ header {
     background: none;
     font-family: 'Poppins';
     margin-right: 1rem;
+    font-size: 0.9rem;
 }
 
 #sairPesquisa button:hover{
+    color: #FF2253;
+    cursor: pointer;
+}
+
+#sairPesquisa a{
+    border: none;
+    background: none;
+    font-family: 'Poppins';
+    margin-right: 1rem;
+    text-decoration: none;
+    color: #000000;
+    font-size: 0.9rem;
+
+}
+
+#sairPesquisa a:hover{
     color: #FF2253;
     cursor: pointer;
 }
@@ -103,7 +120,8 @@ img:hover {
 }
 
 #vitrinePrincipal {
-    flex-grow: 2;
+    width: 1000px;
+    margin-right: 20px;
 }
 
 #vitrineCarrinho {
@@ -153,8 +171,6 @@ img:hover {
 #botoesCategoria {
     display: flex;
     overflow-x: auto;
-    width: 90%;
-    max-width: 90%;
 }
 
 #botoesCategoria::-webkit-scrollbar {
@@ -215,11 +231,11 @@ img:hover {
 }
 
 #vitrineProdutos {
-    margin-right: 30px;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-between;
+    margin-top: 20px;
 }
 
 .cardProduto {
