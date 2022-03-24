@@ -99,53 +99,49 @@
         </article>
     </main>
 
-    <div class="modalEditarCarrinhoContainerOverlay modalEditarProdutoCarrinho--hide">
+    <div id="editarProdutoModal" class="modalEditarCarrinhoContainerOverlay modalEditarProdutoCarrinho--hide">
         <div class="modalEditarProdutoCarrinho">
             <div class="modalEditarProdutoCarrinho__cabecalho">
-                <h3>Status</h3>
-                <span>x</span>
+                <h3>Edição de produto</h3>
+                <span class="close">X</span>
             </div>
 
             <div class="modalEditarProdutoCarrinho__corpo">
                 <form action="#">
                     <div class="modalEditarProdutoCarrinho__containerNome">
-                        <label class="modalEditarProdutoCarrinho__label" for="nome">Nome do Produto</label>
-                        <input class="modalEditarProdutoCarrinho__input" type="text" name="nome" id="nome"
-                            placeholder="">
+                        <label class="modalEditarProdutoCarrinho__label" for="nomeProduto">Nome do Produto</label>
+                        <input class="modalEditarProdutoCarrinho__input" type="text" name="nomeProduto" id="nome" placeholder="">
                     </div>
 
                     <div class="modalEditarProdutoCarrinho__containerDescricao">
-                        <label class="modalEditarProdutoCarrinho__descricao" for="descricao">Descrição</label>
-                        <textarea type="text" name="descricao" id="descricao"
+                        <label class="modalEditarProdutoCarrinho__descricao" for="descricaoProduto">Descrição</label>
+                        <textarea type="text" name="descricaoProduto" id="descricao"
                             class="modalEditarProdutoCarrinho__textArea"
                             placeholder="Esse é um dos sabores de pizza mais pedidos por quem não come carne"></textarea>
                     </div>
 
                     <div class="modalEditarProdutoCarrinho__categoria">
-                        <h3>Categorias</h3>
-                        <div class="modalEditarProdutoCarrinho__containerBotoes">
+                        <label>Categorias</label>
+                        <div id="editarProdutoCategorias" class="modalEditarProdutoCarrinho__containerBotoes">
 
-                            <button class="modalEditarProdutoCarrinho__butoes">Panificadora</button>
-                            <button class="modalEditarProdutoCarrinho__butoes">Frutas</button>
-                            <button class="modalEditarProdutoCarrinho__butoes">Bebidas</button>
                         </div>
                     </div>
 
                     <div class="modalEditarProdutoCarrinho__containerValorProduto">
-                        <label class="modalEditarProdutoCarrinho__label" for="nome">Valor do Produto</label>
-                        <input class="modalEditarProdutoCarrinho__input" type="text" name="nome" id="nome"
+                        <label class="modalEditarProdutoCarrinho__label" for="valorProduto">Valor do Produto</label>
+                        <input class="modalEditarProdutoCarrinho__input" type="text" name="valorProduto" id="nome"
                             placeholder="50.00">
                     </div>
 
                     <div class="modalEditarProdutoCarrinho__containerLinkDaImagem">
-                        <label class="modalEditarProdutoCarrinho__label" for="nome">Link da imagem</label>
-                        <input class="modalEditarProdutoCarrinho__input" type="url" name="nome" id="nome"
+                        <label class="modalEditarProdutoCarrinho__label" for="imagemProduto">Link da imagem</label>
+                        <input class="modalEditarProdutoCarrinho__input" type="url" name="imagemProduto" id="nome"
                             placeholder="https://images.unsplash.com/">
                     </div>
 
                     <div class="modalEditarProdutoCarrinho__containerBotoesSubmit">
 
-                        <button class="modalEditarProdutoCarrinho__butoes">Excluir</button>
+                        <button id="salvarEdicaoButton" class="modalEditarProdutoCarrinho__butoes">Excluir</button>
                         <button
                             class="modalEditarProdutoCarrinho__butoes modalEditarProdutoCarrinho__butoes--width">Salvar
                             alterações</button>
@@ -167,6 +163,17 @@
 
         <div class="notification-popup__status"></div>
     </div>
+
+    <div id="modal-delete">
+        <section id="opcao-sair">
+            <h3 class="titulo-delete">Exclusão de Produto</h3>
+            <button id="sair">X</button>
+        </section>
+        <section id="delete-info">
+            <h2>Tem certeza que deseja excluir esse produto?</h2>
+            <button class="btn-style-modal-delete" id="sim">Sim</button>
+            <button class="btn-style-modal-delete" id="não">Não</button>
+        </section>
 
     <script type="module" src="../controllers/admin/scriptAdmin.js"></script>
 </body>
