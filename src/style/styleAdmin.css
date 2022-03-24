@@ -9,11 +9,11 @@ body{
 /* HEADER */
 header {
     width: 100%;
-    line-height: 70px;
+    height: 80px;
     display: flex;
     flex-direction: row;
-    justify-content: flex-end;
-    box-shadow: 0px 0px 40px -20px rgba(0, 0, 0, 0.25);
+    justify-content: space-between;
+    box-shadow: 0px 0px 40px -20px rgb(0 0 0 / 25%);
     margin-bottom: 30px;
     align-items: center;
 }
@@ -183,12 +183,11 @@ header {
     margin-bottom: 5px;
 }
 
-#cadastrarProdutoCategorias{
+#cadastrarProdutoCategorias {
     display: flex;
     justify-content: flex-start;
-    flex-wrap: wrap;
+    overflow: auto;
     max-width: 440px;
-
 }
 
 #cadastrarProdutoCategorias .categoriasVitrine {
@@ -219,12 +218,13 @@ header {
 #vitrineCategorias {
     display: flex;
     justify-content: space-between;
-    margin: 0 48px;
+    margin: 0 48px 48px;
 }
 
 #botoesCategoria {
     display: flex;
-    flex-wrap: wrap;
+    overflow-x: auto;
+    margin-right: 10px;
 }
 
 .categoriasVitrine {
@@ -335,8 +335,35 @@ header {
 
 .infoCategorias{
     width: 30%;
+    max-width: 30%;
     display: flex;
     align-items: center;
+    overflow-x: auto;
+    margin-right: 10px;
+}
+
+.infoCategorias::-webkit-scrollbar {
+    height: 5px;
+}
+
+#cadastrarProdutoCategorias::-webkit-scrollbar,
+#botoesCategoria::-webkit-scrollbar {
+    width: 1px;
+    height: 10px;
+}
+
+.infoCategorias::-webkit-scrollbar-track, 
+#cadastrarProdutoCategorias::-webkit-scrollbar-track,
+#botoesCategoria::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+}
+   
+.infoCategorias::-webkit-scrollbar-thumb, 
+#cadastrarProdutoCategorias::-webkit-scrollbar-thumb,
+#botoesCategoria::-webkit-scrollbar-thumb {
+    background-color: #FF2253;
+    border-radius: 10px;
 }
 
 .infoCategorias h3{
@@ -401,7 +428,6 @@ header {
     .infoDescricao p{
         max-width: 20ch;
     }
-
 }
 
 
@@ -697,28 +723,29 @@ color: #F8F9FA;
 /* Modal: Editar produto - Fim*/
 
 
-.notification-popup{
+.notification-popup,
+.notification-popup--hide
+{
     width: 496px;
     height: 135px;
     bottom: 8px;
     float: right;
     right: 8px;
     position: fixed;
-    opacity: 1;
     transition: opacity .5s linear;
-
+    pointer-events: none
 }
-
+.notification-popup {
+    opacity: 1;
+}
 .notification-popup--hide{
     opacity: 0;
-    pointer-events: none
 }
 
 .notification-popup__cabecalho{
     display: flex;
     align-items: center;
     position: relative;
-    
     width: 100%;
     height: 70px;
     border-radius: 8px 8px 0px 0px;
@@ -778,9 +805,17 @@ color: #F8F9FA;
     height: 8px;
     border-radius: 0px 0px 8px 8px
 }
-
-.notification-popup__status--bg-color{
-    
-    background-color: #39DF8F;
+#pesquisaFotoPerfil{
+    display: flex;
+    align-items: center;
 }
 
+#fotoPerfilDireita{
+    display: flex;
+    align-items: center;
+    margin: 0 48px 0 20px;
+}
+
+#logoKenzieFood{
+    margin: 0 48px;
+}

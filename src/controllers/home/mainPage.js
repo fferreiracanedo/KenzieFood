@@ -5,23 +5,190 @@ import { botoesCategoria } from "../admin/cadastrarProduto.js"
 import { PesquisaDinamica } from "./campoPesquisa.js"
 import {ButtoesPesquisa} from "./buttoesPesquisa.js"
 
+import { UsuarioAutenticadoAPI } from './usuarioAunteticadoAPI.js'
+import { LocalStorage } from '../localStorage.js'
+import { Carrinho } from './adicionarCarrinho.js'
+import { RemoverCarrinhar} from './removerCarrinho.js'
+
+// AUTENTICACAO
 Autenticador.autenticar()
-const arrayProdutos = await ApiPublica.buscarProdutosApi()
-ApiPublica.template(arrayProdutos)
-adminPage.carregarCategorias("products", botoesCategoria, "Nav")
+const verificacao = Autenticador.usuarioAtual()
 
-console.log(arrayProdutos)
+if(verificacao == 'autenticado'){
+    // RENDERIZAR CARRINHO
+    const arrayProdutosCarrinho = await Carrinho.renderizarCarrinhoAutenticado()
+    Carrinho.getProduto(arrayProdutosCarrinho)
+    // DADOS DOS PRODUTOS
+    const arrayProdutosAutenticado = await UsuarioAutenticadoAPI.produtos()
+    // RENDERIZACAO PRODUTOS
+    ApiPublica.template(arrayProdutosAutenticado)
+
+    // RENDERIZACAO BOTOES CATEGORIAS
+    adminPage.carregarCategorias("my/products", botoesCategoria, "Nav")
+
+    // FILTRO POR PESQUISA
+    const campoPesquisa = document.querySelector("#pesquisa")
+    campoPesquisa.addEventListener("keyup", (e)=> {
+        const infoPesquisa =  e.target.value 
+        PesquisaDinamica.filtroPesquisa(arrayProdutosAutenticado, infoPesquisa)
+    })
+
+    // VALOR TOTAL CARRINHO
+    const historicoCard = []
+    const botoesAddCart = document.querySelectorAll('.adicionarNoCarrinho')
+    botoesAddCart.forEach((btn) => { 
+        btn.addEventListener("click", (e) => { 
+
+            const click = e.target
+            const cardClick = click.closest('.cardProduto').id
+            const produtoADD = {
+                "product_id": `${cardClick}`
+            }            
+             const filtro = arrayProdutosAutenticado.find((produto) => produto.id == cardClick)
+            // console.log()
+            // if(!historicoCard.includes(filtro)){
+            // }
+            // historicoCard.push(filtro)
+            Carrinho.adicionarCarrinhoDinamic(filtro)
+            Carrinho.adicionarCarrinhoAutenticado(produtoADD)  
+            //Carrinho.getProduto(arrayProdutosCarrinho)
+            const valores = document.querySelectorAll('.valorProdutoCarrinho')
+            const qtdCarrinho = document.getElementById('spanQtdCarrinho')
+            const totalCarrinho = document.getElementById('spanValorCarrinho')
+            let valorTotal = 0
+            let comprimento = []
+            valores.forEach((valor) => {
+                const valorAtual = Number(valor.innerText.slice(2))
+                valorTotal   += valorAtual
+                comprimento.push(valor)
+            })
+            qtdCarrinho.innerText = comprimento.length
+            totalCarrinho.innerText = valorTotal 
+        
+        }) 
+            
+        })
+    const botoesRemover = document.querySelectorAll('.tirarCarrinho')
+    botoesRemover.forEach((btn) => { 
+        btn.addEventListener("click", (e) => { 
+            const click = e.target
+            const cardClick = click.closest('.cardProduto').id
+            const cliqueCarrinho = cardClick.replace(/^./, "")
+            const filtro = historicoCard.find((produto) => produto.id == cliqueCarrinho)
+            console.log(cliqueCarrinho)
+            
+            RemoverCarrinhar.removerItemCarrinhoAutenticado(cliqueCarrinho)
+            Carrinho.removerCarrinhoAutenticado(cardClick)
+
+            }) 
+        })
+        const qtdCarrinho = document.getElementById('spanQtdCarrinho')
+        const totalCarrinho = document.getElementById('spanValorCarrinho')
+        const valores = document.querySelectorAll('.valorProdutoCarrinho')
+         let valorTotal = 0
+        let comprimento = []
+        valores.forEach((valor) => {
+            const valorAtual = Number(valor.innerText.slice(2))
+            valorTotal   += valorAtual
+            comprimento.push(valor)
+        })
+        qtdCarrinho.innerText = comprimento.length
+        totalCarrinho.innerText = valorTotal 
+        
+    //RemoverCarrinhar.removerItemCarrinho(arrayProdutosCarrinho)
+    const botoesFiltro = document.querySelectorAll(".categoriasVitrine")
+    botoesFiltro.forEach((botao)=>{
+        botao.addEventListener("click", filtrarCategorias)
+    })
+
+    let arrayProdutos = []
+    setTimeout(() => {
+        
+    
+    function filtrarCategorias(event){
+      
+        const inputs = event.target
+
+        arrayProdutosAutenticado.filter((produto)=>{
+                                                                    
+            if(produto.categoria == inputs.value){
+               
+                console.log(this)
+                arrayProdutos.push(produto)
+            }
+                          
+                   
+        })
+        
+    ApiPublica.template(arrayProdutos)
+    arrayProdutos = []
+    
+}
+}, 500);
+}
 
 
-const campoPesquisa = document.querySelector("#pesquisa")
+if(verificacao == 'anonimo'){
+    //CADASTRO PROD
+    const cadastrarProdutos = document.getElementById('cadastrarProdutos')
+    cadastrarProdutos.style.display = 'none'
+    // DADOS DOS PRODUTOS
+    const arrayProdutos = await ApiPublica.buscarProdutosApi()
+    Carrinho.startCarrinhoAnonimo(arrayProdutos)
 
-campoPesquisa.addEventListener("keyup", (e)=> {
-    const infoPesquisa =  e.target.value 
-    console.log(infoPesquisa)
-    PesquisaDinamica.filtroPesquisa(arrayProdutos, infoPesquisa)
-})
+    // RENDERIZACAO PRODUTOS
+    ApiPublica.template(arrayProdutos)
 
-//função que adiciona evento listen em todos os botoes da categoria 
+    // RENDERIZACAO BOTOES CATEGORIAS
+    adminPage.carregarCategorias("products", botoesCategoria, "Nav")
+
+    // FILTRO POR PESQUISA
+    const campoPesquisa = document.querySelector("#pesquisa")
+    campoPesquisa.addEventListener("keyup", (e)=> {
+        const infoPesquisa =  e.target.value 
+        PesquisaDinamica.filtroPesquisa(arrayProdutos, infoPesquisa)
+    })
+
+    // VALOR TOTAL CARRINHO
+    const totalCarrinho = document.getElementById('spanValorCarrinho')
+    let valorTotal = 0
+    const valores = document.querySelectorAll('.valorProdutoCarrinho')
+    valores.forEach((valor) => {
+        const valorAtual = Number(valor.innerText.slice(2))
+        valorTotal   += valorAtual
+    })
+    totalCarrinho.innerText = valorTotal 
+
+    const botoesAddCart = document.querySelectorAll('.adicionarNoCarrinho')
+    botoesAddCart.forEach((btn) => { 
+        btn.addEventListener("click", (e) => { 
+            const click = e.target
+            const cardClick = click.closest('.cardProduto').id
+
+            Carrinho.adicionarNoCarrinhoAnonimo(cardClick, arrayProdutos)
+            
+            const qtdCarrinho = document.getElementById('spanQtdCarrinho')
+            qtdCarrinho.innerText = Carrinho.arrayCarrinho.length
+
+            const totalCarrinho = document.getElementById('spanValorCarrinho')
+            let valorTotal = 0
+            const valores = document.querySelectorAll('.valorProdutoCarrinho')
+            valores.forEach((valor) => {
+                const valorAtual = Number(valor.innerText.slice(2))
+                valorTotal   += valorAtual
+            })
+            totalCarrinho.innerText = valorTotal 
+            }) 
+
+        })
+    
+
+        RemoverCarrinhar.removerItemCarrinhoAnonimo()
+    // QUANTIDADE CARRINHO
+    const qtdCarrinho = document.getElementById('spanQtdCarrinho')
+    qtdCarrinho.innerText = Carrinho.arrayCarrinho.length
+
+    //função que adiciona evento listen em todos os botoes da categoria 
 //inicio
 
 
@@ -39,6 +206,23 @@ setTimeout(() => {
 }, 500);
 //fim 
 
+}
+
+
+const campoPesquisa = document.querySelector("#pesquisa")
+// DESLOGAR
+const botaoDeslogar = document.getElementById('sairDaConta')
+botaoDeslogar.addEventListener('click', () => {
+    LocalStorage.clearUserLocalStorage()
+    Autenticador.autenticar()
+
+})
+
+
 const btnAdicionarCarrinho = document.querySelector("#btnAdicionarCarrinho")
 
 //btnAdicionarCarrinho.addEventListener()
+
+// CARRINHO
+// const btnAdicionarCarrinho = document.querySelector("#btnAdicionarCarrinho")
+// btnAdicionarCarrinho.addEventListener()

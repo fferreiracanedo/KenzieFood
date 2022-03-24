@@ -40,7 +40,39 @@ header {
     color: #868e96;
 }
 
+#sairPesquisa{
+    display: flex;
+    align-items: center;
+}
 
+#sairPesquisa button{
+    border: none;
+    background: none;
+    font-family: 'Poppins';
+    margin-right: 1rem;
+    font-size: 0.9rem;
+}
+
+#sairPesquisa button:hover{
+    color: #FF2253;
+    cursor: pointer;
+}
+
+#sairPesquisa a{
+    border: none;
+    background: none;
+    font-family: 'Poppins';
+    margin-right: 1rem;
+    text-decoration: none;
+    color: #000000;
+    font-size: 0.9rem;
+
+}
+
+#sairPesquisa a:hover{
+    color: #FF2253;
+    cursor: pointer;
+}
 
 #logoKenzieFood{
     display: flex;
@@ -57,6 +89,7 @@ header {
     border: 1.5px solid #e9ecef;
     border-radius: 10px;
     padding: 0.5em;
+    height: 25px;
 }
 
 #botaoPesquisar{
@@ -74,6 +107,7 @@ main {
 img {
     transition: 0.5s;
     width: 270px;
+    height: 180px;
     border: 2px solid transparent;
 }
 
@@ -88,16 +122,16 @@ img:hover {
 }
 
 #vitrinePrincipal {
-    flex-grow: 2;
+    width: 1000px;
+    margin-right: 20px;
 }
 
 #vitrineCarrinho {
     width: 250px;
-    height: 420px;
     display: flex;
-    flex-direction: column;
-    
+    flex-direction: column;    
 }
+
 
 
 #carrinhoTexto {
@@ -138,7 +172,23 @@ img:hover {
 
 #botoesCategoria {
     display: flex;
-    flex-wrap: wrap;
+    overflow-x: auto;
+}
+
+#botoesCategoria::-webkit-scrollbar {
+    width: 1px;
+    height: 10px;
+    margin-right: 10px;
+}
+
+#botoesCategoria::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+}
+
+#botoesCategoria::-webkit-scrollbar-thumb {
+    background-color: #FF2253;
+    border-radius: 10px;
 }
 
 .categoriasVitrine {
@@ -183,11 +233,11 @@ img:hover {
 }
 
 #vitrineProdutos {
-    margin-right: 30px;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-between;
+    margin-top: 20px;
 }
 
 .cardProduto {
@@ -211,6 +261,10 @@ img:hover {
     font-size: 14px;
     color: #868e96;
     margin-bottom: 20px;
+    max-width: 100ch;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 
 #produtoPreco {
@@ -252,3 +306,205 @@ img:hover {
     border:none;
     background-color: rgba(0, 128, 0, 0.228);
 }
+
+#vitrineCarrinho {
+    width: 250px;
+    display: flex;
+    flex-direction:column;
+    justify-content: space-between;
+}
+
+
+
+.cardCarrinho {
+    margin-bottom: -30px;
+    height: 100px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    
+}
+
+.descricaoItens {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-top: 40px;
+    margin-left: -15px;
+    position: relative;
+    top: -10px;
+}
+
+#imgCarrinho {
+    width: 90px;
+    height: 60px;
+    border-radius: 10px;
+}
+
+#produtoNomeCarrinho {
+    margin-top: -30px;
+    font-family: "Poppins";
+    font-style: normal;
+    font-size: 15px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    max-width: 10ch;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+#produtoCategoriaCarrinho {
+    font-family: "Poppins";
+    font-style: normal;
+    font-weight: 300;
+    font-size: 12px;
+    color: #868e96;
+}
+
+#produtoPrecoCarrinho {
+    font-family: "Poppins";
+    font-style: normal;
+    font-weight: 300;
+    font-size: 14px;
+}
+
+#btnTirarCarrinho {
+    border: none;
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+    color: #868E96;
+    background-color:#F8F9FA;
+}
+
+
+
+@media (max-width: 480px) {
+    main {
+        width: 100vw;
+        display: inline-block;
+    }
+    #content {
+        width: 85vw;
+    }
+
+    #pesquisa {
+        width: 3px;
+    }
+
+    #barraDePesquisa {
+        position:relative;
+        height: 20px;
+        width: 45px;
+        top: 2px;
+    }
+
+    #botaoPesquisar {
+        margin-right: 3px;
+    }
+
+    #vitrinePrincipal {
+        margin: 0 auto;
+        width: 75vw;
+    }
+
+    #vitrineCarrinho {
+        height: 100px;
+        min-width: 100vw;
+        display: flex;
+        flex-direction: row;
+        background-color: #ffffff;
+        overflow-x: scroll;
+    }
+
+
+    .cardCarrinho {
+        margin-top: 10px;
+        margin-left: 5px;
+        height: 50px;  
+        width: 100vw;
+    }
+
+    #carrinho {
+        position: fixed;
+        bottom: 0;
+        z-index: 2;
+    }
+
+    .descricaoItens {
+        margin-left: -70px;
+        align-items: left;
+        justify-content: start;
+    }
+
+    #imgCarrinho {
+        width: 75px;
+        height: 50px;
+        border-radius: 10px;
+    }
+
+    .cardCarrinho h2 {
+        font-size: 12px;
+    }
+
+    .cardCarrinho p {
+        font-size: 10px;
+    }
+
+    .cardCarrinho h4 {
+        font-size: 11px;
+    }
+
+    #carrinhoTexto {
+        height: 7px;
+    }
+
+
+    #qtdCarrinho p,
+    #totalCarrinho p {
+        line-height: 10px;
+        font-size: 0.8rem;
+    }
+
+    #sairPesquisa button {
+        font-size: 10px;
+        position: relative;
+        color: #868e96;
+    }
+
+    #botoesCategoria {
+        margin-left: 10px;
+        margin-bottom: 10px;
+    }
+
+    #botoesCategoria::-webkit-scrollbar {
+        height: 5px;
+    }
+    #sairCadastrar {
+        line-height: 2px;
+        display:flex;
+        flex-direction: column;
+        align-items: flex-end;
+        line-height: 10px;
+    }
+
+    #sairCadastrar a{
+        visibility: hidden;
+    }
+    #sairCadastrar a:after {
+        visibility: visible;
+        content: "Cadastrar";
+        font-size: 10px;
+       
+        color: #868e96;
+    }
+
+    #btnTirarCarrinho {
+        margin-left: -60px;
+    }
+
+
+}
+

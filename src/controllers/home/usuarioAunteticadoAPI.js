@@ -1,12 +1,16 @@
-import { CardProduto } from "./cardProdutos.js"
+import { Carrinho } from "./adicionarCarrinho.js"
 
-export class AdminAPI{
+export class UsuarioAutenticadoAPI{
+    
     static API_URL = 'https://kenzie-food-api.herokuapp.com/'
 
-    static produtos(){
+    static arrayProdutos = {}
+
+
+    static async produtos(){
         const UserToken = localStorage.getItem('key').replaceAll(`"`, ``)
 
-        fetch(`${this.API_URL}my/products`, {
+        await fetch(`${this.API_URL}my/products`, {
             "method": "GET",
             "headers": {
                 "Content-Type": "application/json",
@@ -14,8 +18,9 @@ export class AdminAPI{
             }
         })
         .then((response) => response.json())
-        .then((request) => CardProduto.templateCard(request))
-    
+        .then((request) => this.arrayProdutos.produtos = request)
+
+        return this.arrayProdutos.produtos
     }
 
 }
