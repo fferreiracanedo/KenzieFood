@@ -3,10 +3,10 @@ import { CardProduto } from "./cardProdutos.js"
 export class AdminAPI{
     static API_URL = 'https://kenzie-food-api.herokuapp.com/'
 
-    static produtos(){
+    static async produtos(){
         const UserToken = localStorage.getItem('key').replaceAll(`"`, ``)
-
-        fetch(`${this.API_URL}my/products`, {
+        let arrayProdutos = {}
+        await fetch(`${this.API_URL}my/products`, {
             "method": "GET",
             "headers": {
                 "Content-Type": "application/json",
@@ -14,8 +14,13 @@ export class AdminAPI{
             }
         })
         .then((response) => response.json())
-        .then((request) => CardProduto.templateCard(request))
-    
+        .then((request) => {
+            CardProduto.templateCard(request)
+            arrayProdutos.produtos = request
+        }
+        )
+        
+        return arrayProdutos.produtos
     }
 
 }

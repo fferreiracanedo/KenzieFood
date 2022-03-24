@@ -1,5 +1,4 @@
 import { AdminAPI }                     from "./adminAPI.js";
-
 export class adminPage {
     static editarProdutoCategorias  = document.getElementById("editarProdutoCategorias");
     static API_URL                  = 'https://kenzie-food-api.herokuapp.com/'
