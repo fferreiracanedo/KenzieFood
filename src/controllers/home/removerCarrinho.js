@@ -5,10 +5,8 @@ export class RemoverCarrinhar{
         botoesRemover.forEach((btn) => { 
             btn.addEventListener("click", (e) => { 
                 const click = e.target
-                console.log(array)
 
                 const cardClick = click.closest('.cardProduto').id
-                console.log()
                 this.removerItemCarrinhoAutenticado(cardClick.replace(/^./, ""))
                 Carrinho.removerCarrinhoAutenticado(cardClick)
                 }) 
@@ -44,7 +42,7 @@ export class RemoverCarrinhar{
                         const valorAtual = Number(valor.innerText.slice(2))
                         valorTotal   += valorAtual
                     })
-                    totalCarrinho.innerText = valorTotal 
+                    totalCarrinho.innerText = valorTotal.toFixed(2) 
             
             }) 
             })

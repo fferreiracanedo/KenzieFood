@@ -8,6 +8,7 @@ import { editarProdutoModal } from "./cadastrarProduto.js"
 import { botoesCategoria }              from "./cadastrarProduto.js"
 import { cadastrarProdutoCategorias }   from "./cadastrarProduto.js"
 import { CardProduto } from "./cardProdutos.js";
+import { AddEventListener } from "./filtros.js";
 
 // AUTENTICACAO
 LocalStorage.getLocalStorageAutenticadorAdmin()
@@ -22,36 +23,7 @@ filtrarPesquisa.addEventListener('keyup', (e) => {
     PesquisaDinamica.filtroPesquisaTeclas(arrProd,pesquisa)
 })
 
-
-setTimeout(() => {
-    const botoesFiltro = document.querySelectorAll(".categoriasVitrine")
-    botoesFiltro.forEach((botao)=>{
-        botao.addEventListener("click", filtrarCategorias)
-    })
-}, 500)
-let arrayProdutos = []
-function filtrarCategorias(event){
-const inputs = event.target
-arrProd.filter((produto)=>{
-    if(produto.categoria == inputs.value){
-        console.log(this)
-        arrayProdutos.push(produto)
-    }
-})
-
-CardProduto.templateCard(arrayProdutos)
-arrayProdutos = []
-}
-setTimeout(() => {
-const btnTodos = document.querySelector("#btnTodos")
-btnTodos.addEventListener("click", (e)=>{
-const clique = e.target.id
-if(clique == 'btnTodos'){
-    CardProduto.templateCard(arrProd)
-}
-})
-}, 500)
-
+AddEventListener.colocarADD()
 const adicionarProduto                  = document.getElementById("adicionarProduto")
 const spanCadastrarProdutoModal         = document.getElementsByClassName("close")[0];
 const spanEditarProdutoModal            = document.getElementsByClassName("close")[1];
@@ -60,8 +32,8 @@ const cadastrarProdutoForm              = document.getElementById("cadastrarProd
 const cadastrarProdutoButton            = document.getElementById("cadastrarProdutoButton")
 
 export const editarProdutoCategorias    = document.getElementById("editarProdutoCategorias");
-
 cadastrarProdutoButton.addEventListener("click", (e)=>{
+
     e.preventDefault()
     adminPage.cadastrarNovoProduto()
 })
@@ -77,11 +49,10 @@ adicionarProduto.addEventListener("click", () => {
     setTimeout(() => adminPage.habilitarSelecaoCategorias("Cadastro"), 900)
     setTimeout(() => adminPage.gerarCustomizarCategoria(), 100)
     setTimeout(() => adminPage.habilitarSelecaoCategorias(), 700)
-    setTimeout(() => adminPage.gerarCustomizarCategoria(), 100)
     setTimeout(() => {
         adminPage.categoriaInedita.addEventListener("keyup", () => {
             adminPage.categoriaCustomizada  = adminPage.categoriaInedita.value
-            console.log(adminPage.categoriaCustomizada)
+            
         })
     }, 1000)
 })

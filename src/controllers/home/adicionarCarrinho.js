@@ -20,7 +20,7 @@ export class Carrinho {
           <div class="descricaoItens">
           <p id="produtoCategoriaCarrinho">${categoria}</p>
           <h2 id="produtoNomeCarrinho">${nome}</h2>
-          <h4 class="valorProdutoCarrinho" id="produtoPrecoCarrinho">R$${preco}</h4>
+          <h4 class="valorProdutoCarrinho" id="produtoPrecoCarrinho">R$${preco.toFixed(2)}</h4>
           </div>
           <button class="tirarCarrinho" id="btnTirarCarrinho">X</button>
           </div>
@@ -36,8 +36,6 @@ export class Carrinho {
     }
 
     static mandarInterface(arrayProdutos,arrayID){
-      console.log(arrayProdutos)
-      console.log(arrayID)
       let arrayProd = []
       for(let i = 0; i < arrayID.length;i++){
         const filtro = arrayProdutos.find((produto) => produto.id == arrayID[i])
@@ -69,7 +67,6 @@ export class Carrinho {
 
     static removerCarrinhoAutenticado(id){
       const no = document.getElementById(`${id}`);
-      console.log(no)
       this.vitrineCarrinho.removeChild(no)
       const valores = document.querySelectorAll('.valorProdutoCarrinho')
       const qtdCarrinho = document.getElementById('spanQtdCarrinho')
@@ -114,7 +111,6 @@ export class Carrinho {
 
       })
     
-      console.log(this.arrayProdutos.produtos)
       this.templateCarrinhoAutenticado(this.arrayProdutos.produtos)
       
       return this.arrayProdutos.produtos
@@ -149,7 +145,7 @@ export class Carrinho {
           <div class="descricaoItens">
           <p id="produtoCategoriaCarrinho">${categoria}</p>
           <h2 id="produtoNomeCarrinho">${nome}</h2>
-          <h4 class='valorProdutoCarrinho'id="produtoPrecoCarrinho">R$${preco}</h4>
+          <h4 class='valorProdutoCarrinho'id="produtoPrecoCarrinho">R$${preco.toFixed(2)}</h4>
           </div>
           <button class="tirarCarrinho" id="btnTirarCarrinho">X</button>
           </div>
@@ -172,7 +168,7 @@ export class Carrinho {
         <div class="descricaoItens">
         <p id="produtoCategoriaCarrinho">${categoria}</p>
         <h2 id="produtoNomeCarrinho">${nome}</h2>
-        <h4  class='valorProdutoCarrinho' id="produtoPrecoCarrinho">R$${preco}</h4>
+        <h4  class='valorProdutoCarrinho' id="produtoPrecoCarrinho">R$${preco.toFixed(2)}</h4>
         </div>
         <button class="tirarCarrinho" id="btnTirarCarrinho">X</button>
         </div>

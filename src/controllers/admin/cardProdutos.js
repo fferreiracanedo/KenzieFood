@@ -10,7 +10,6 @@ export class CardProduto{
 
         arrayProdutos.forEach(({categoria, descricao, imagem, nome, id}) => {
             const categoriaCardProduto = []
-
             if (categoria.includes(',')){
                 let arr = categoria.split(',')
                     arr.forEach((novoProduto) => {
@@ -19,13 +18,13 @@ export class CardProduto{
                             let upperCase = filtered.replace(filtered[0], filtered[0].toUpperCase())
                             categoriaCardProduto.push(upperCase)
                         }
-                    })
+                        
+                    }) 
             }
             if (!categoriaCardProduto.includes(categoria) && !categoria.includes(',')) {
                 let upperCase = categoria.replace(categoria[0], categoria[0].toUpperCase())
                 categoriaCardProduto.push(upperCase)
             }
-
             const containerCard = document.createElement('div')
             containerCard.classList.add('containerCardProduto')
             containerCard.innerHTML = `

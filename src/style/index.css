@@ -182,18 +182,22 @@ img:hover {
     overflow-x: auto;
 }
 
-#botoesCategoria::-webkit-scrollbar {
+#botoesCategoria::-webkit-scrollbar{
     width: 1px;
     height: 10px;
     margin-right: 10px;
 }
-
-#botoesCategoria::-webkit-scrollbar-track {
+#vitrineCarrinho::-webkit-scrollbar {
+    width: 1px;
+    height: 5px;
+    margin-right: 10px;
+}
+#botoesCategoria::-webkit-scrollbar-track, #vitrineCarrinho::-webkit-scrollbar-track {
     box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
     border-radius: 10px;
 }
 
-#botoesCategoria::-webkit-scrollbar-thumb {
+#botoesCategoria::-webkit-scrollbar-thumb, #vitrineCarrinho::-webkit-scrollbar-thumb {
     background-color: #FF2253;
     border-radius: 10px;
 }
@@ -418,7 +422,13 @@ img:hover {
         width: 75vw;
         padding: 0 0 230px 0;
     }
-
+    .cardCarrinho {
+        margin-top: 10px;
+        margin-left: 5px;
+        margin-bottom: -17px;
+        height: 100px;
+        width: 100vw;
+    }
     #vitrineCarrinho {
         height: 100%;
         min-width: 100vw;

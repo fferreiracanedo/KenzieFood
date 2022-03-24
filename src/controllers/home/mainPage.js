@@ -38,13 +38,9 @@ if(verificacao == 'autenticado'){
                 "product_id": `${cardClick}`
             }
              const filtro = arrayProdutosAutenticado.find((produto) => produto.id == cardClick)
-            // console.log()
-            // if(!historicoCard.includes(filtro)){
-            // }
-            // historicoCard.push(filtro)
+
             Carrinho.adicionarCarrinhoDinamic(filtro)
             Carrinho.adicionarCarrinhoAutenticado(produtoADD)
-            //Carrinho.getProduto(arrayProdutosCarrinho)
             const valores = document.querySelectorAll('.valorProdutoCarrinho')
             const qtdCarrinho = document.getElementById('spanQtdCarrinho')
             const totalCarrinho = document.getElementById('spanValorCarrinho')
@@ -56,7 +52,7 @@ if(verificacao == 'autenticado'){
                 comprimento.push(valor)
             })
             qtdCarrinho.innerText = comprimento.length
-            totalCarrinho.innerText = valorTotal
+            totalCarrinho.innerText = valorTotal.toFixed(2) 
         })
         })
     const botoesRemover = document.querySelectorAll('.tirarCarrinho')
@@ -66,7 +62,6 @@ if(verificacao == 'autenticado'){
             const cardClick = click.closest('.cardProduto').id
             const cliqueCarrinho = cardClick.replace(/^./, "")
             const filtro = historicoCard.find((produto) => produto.id == cliqueCarrinho)
-            console.log(cliqueCarrinho)
             RemoverCarrinhar.removerItemCarrinhoAutenticado(cliqueCarrinho)
             Carrinho.removerCarrinhoAutenticado(cardClick)
             })
@@ -82,8 +77,7 @@ if(verificacao == 'autenticado'){
             comprimento.push(valor)
         })
         qtdCarrinho.innerText = comprimento.length
-        totalCarrinho.innerText = valorTotal
-    //RemoverCarrinhar.removerItemCarrinho(arrayProdutosCarrinho)
+        totalCarrinho.innerText = valorTotal.toFixed(2) 
         setTimeout(() => {
             const botoesFiltro = document.querySelectorAll(".categoriasVitrine")
             botoesFiltro.forEach((botao)=>{
@@ -94,10 +88,10 @@ if(verificacao == 'autenticado'){
     function filtrarCategorias(event){
         const inputs = event.target
         arrayProdutosAutenticado.filter((produto)=>{
-            if(produto.categoria == inputs.value){
-                console.log(this)
+            if(produto.categoria.includes(inputs.value)){
                 arrayProdutos.push(produto)
             }
+            
         })
     ApiPublica.template(arrayProdutos)
     arrayProdutos = []
@@ -154,8 +148,8 @@ if(verificacao == 'anonimo'){
                 const valorAtual = Number(valor.innerText.slice(2))
                 valorTotal   += valorAtual
             })
-            totalCarrinho.innerText = valorTotal
-            })
+            totalCarrinho.innerText = valorTotal.toFixed(2) 
+        })
         })
         RemoverCarrinhar.removerItemCarrinhoAnonimo()
     // QUANTIDADE CARRINHO

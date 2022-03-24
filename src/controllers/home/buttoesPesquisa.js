@@ -14,7 +14,6 @@ export class ButtoesPesquisa{
             }
         })
 
-        console.log(this.arrayProdutos)
       
         this.arrayProdutos = []
     }

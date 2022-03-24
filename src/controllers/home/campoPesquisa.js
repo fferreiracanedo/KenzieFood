@@ -24,7 +24,6 @@ export class PesquisaDinamica {
                 .replace(/[\u0300-\u036f]/g, "");
             if (filtroProduto.includes(pesquisaFiltro) || filtroCategoria.includes(pesquisaFiltro)) {
                 this.arrayProdutos.push(produto);
-                console.log(pesquisa);
             }
         });
 
@@ -53,7 +52,6 @@ export class PesquisaDinamica {
                 .replace(/[\u0300-\u036f]/g, "")
             if (filtroProduto.includes(pesquisaFiltro) || filtroCategoria.includes(pesquisaFiltro)) {
                 arrayProdutos.push(produto)
-                console.log(pesquisa)
             }
         });
         CardProduto.templateCard(arrayProdutos)
