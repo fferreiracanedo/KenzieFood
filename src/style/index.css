@@ -58,6 +58,13 @@ header {
     cursor: pointer;
 }
 
+#produtoCategoriaCarrinho{
+    max-width: 10ch;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
 #sairPesquisa a{
     border: none;
     background: none;
@@ -333,6 +340,7 @@ img:hover {
     margin-left: -15px;
     position: relative;
     top: -10px;
+    width: 100px;
 }
 
 #imgCarrinho {
@@ -385,6 +393,7 @@ img:hover {
         width: 100vw;
         display: inline-block;
     }
+    
     #content {
         width: 85vw;
     }
@@ -407,6 +416,7 @@ img:hover {
     #vitrinePrincipal {
         margin: 0 auto;
         width: 75vw;
+        padding: 0 0 230px 0;
     }
 
     #vitrineCarrinho {
