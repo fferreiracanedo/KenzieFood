@@ -7,6 +7,7 @@ export class adminPage {
     static categoriasEscolhidas     = []
     static categoriaCustomizada     = ""
     static categoriaInedita         = ""
+    static categoriaMainPage        = []
 
     static cadastrarProduto (){
         cadastrarProdutoModal.style.display = "flex";
@@ -157,6 +158,7 @@ export class adminPage {
         .then((res) => res.json())
         .then((res) => {
             res.forEach((produto) => {
+                this.categoriaMainPage.push(produto.categoria)
                 if (produto.categoria.includes(', ')){
                     let arr = produto.categoria.split(', ')
                     arr.forEach((novoProduto) => {
