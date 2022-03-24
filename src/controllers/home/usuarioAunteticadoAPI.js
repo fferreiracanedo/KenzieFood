@@ -1,5 +1,6 @@
+import { Carrinho } from "./adicionarCarrinho.js"
+
 export class UsuarioAutenticadoAPI{
-    static UserToken = localStorage.getItem('key').replaceAll(`"`, ``)
     
     static API_URL = 'https://kenzie-food-api.herokuapp.com/'
 
@@ -7,11 +8,13 @@ export class UsuarioAutenticadoAPI{
 
 
     static async produtos(){
+        const UserToken = localStorage.getItem('key').replaceAll(`"`, ``)
+
         await fetch(`${this.API_URL}my/products`, {
             "method": "GET",
             "headers": {
                 "Content-Type": "application/json",
-                "Authorization": `Bearer ${this.UserToken}`
+                "Authorization": `Bearer ${UserToken}`
             }
         })
         .then((response) => response.json())
@@ -19,4 +22,5 @@ export class UsuarioAutenticadoAPI{
 
         return this.arrayProdutos.produtos
     }
+
 }

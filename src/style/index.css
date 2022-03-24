@@ -42,6 +42,7 @@ header {
 
 #sairPesquisa{
     display: flex;
+    align-items: center;
 }
 
 #sairPesquisa button{
@@ -49,9 +50,26 @@ header {
     background: none;
     font-family: 'Poppins';
     margin-right: 1rem;
+    font-size: 0.9rem;
 }
 
 #sairPesquisa button:hover{
+    color: #FF2253;
+    cursor: pointer;
+}
+
+#sairPesquisa a{
+    border: none;
+    background: none;
+    font-family: 'Poppins';
+    margin-right: 1rem;
+    text-decoration: none;
+    color: #000000;
+    font-size: 0.9rem;
+
+}
+
+#sairPesquisa a:hover{
     color: #FF2253;
     cursor: pointer;
 }
@@ -71,6 +89,7 @@ header {
     border: 1.5px solid #e9ecef;
     border-radius: 10px;
     padding: 0.5em;
+    height: 25px;
 }
 
 #botaoPesquisar{
@@ -103,8 +122,14 @@ img:hover {
 }
 
 #vitrinePrincipal {
-    flex-grow: 2;
-    
+    width: 1000px;
+    margin-right: 20px;
+}
+
+#vitrineCarrinho {
+    width: 250px;
+    display: flex;
+    flex-direction: column;    
 }
 
 
@@ -148,8 +173,6 @@ img:hover {
 #botoesCategoria {
     display: flex;
     overflow-x: auto;
-    width: 90%;
-    max-width: 90%;
 }
 
 #botoesCategoria::-webkit-scrollbar {
@@ -210,11 +233,11 @@ img:hover {
 }
 
 #vitrineProdutos {
-    margin-right: 30px;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-between;
+    margin-top: 20px;
 }
 
 .cardProduto {
@@ -238,6 +261,10 @@ img:hover {
     font-size: 14px;
     color: #868e96;
     margin-bottom: 20px;
+    max-width: 100ch;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 
 #produtoPreco {
@@ -302,7 +329,6 @@ img:hover {
 .descricaoItens {
     display: flex;
     flex-direction: column;
-    align-items: center;
     justify-content: space-between;
     margin-top: 40px;
     margin-left: -15px;
@@ -353,17 +379,30 @@ img:hover {
     background-color:#F8F9FA;
 }
 
+
+
 @media (max-width: 480px) {
     main {
         width: 100vw;
         display: inline-block;
     }
     #content {
-        width: 75vw;
+        width: 85vw;
     }
 
     #pesquisa {
-        width: 21vw;
+        width: 3px;
+    }
+
+    #barraDePesquisa {
+        position:relative;
+        height: 20px;
+        width: 45px;
+        top: 2px;
+    }
+
+    #botaoPesquisar {
+        margin-right: 3px;
     }
 
     #vitrinePrincipal {
@@ -395,8 +434,9 @@ img:hover {
     }
 
     .descricaoItens {
-        width: 0px;
-        margin-left: -30px;
+        margin-left: -70px;
+        align-items: left;
+        justify-content: start;
     }
 
     #imgCarrinho {
@@ -429,11 +469,42 @@ img:hover {
     }
 
     #sairPesquisa button {
-        font-size: 11px;
+        font-size: 10px;
         position: relative;
+        color: #868e96;
     }
 
-    .categoriaVitrine {
-        line-height: 20px;
+    #botoesCategoria {
+        margin-left: 10px;
+        margin-bottom: 10px;
     }
+
+    #botoesCategoria::-webkit-scrollbar {
+        height: 5px;
+    }
+    #sairCadastrar {
+        line-height: 2px;
+        display:flex;
+        flex-direction: column;
+        align-items: flex-end;
+        line-height: 10px;
+    }
+
+    #sairCadastrar a{
+        visibility: hidden;
+    }
+    #sairCadastrar a:after {
+        visibility: visible;
+        content: "Cadastrar";
+        font-size: 10px;
+       
+        color: #868e96;
+    }
+
+    #btnTirarCarrinho {
+        margin-left: -60px;
+    }
+
+
 }
+

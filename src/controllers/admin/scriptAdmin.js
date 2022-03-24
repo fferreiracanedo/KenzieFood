@@ -3,7 +3,6 @@ import { AdminAPI }                     from "./adminAPI.js";
 import { adminPage }                    from "./cadastrarProduto.js"
 
 import { cadastrarProdutoModal }        from "./cadastrarProduto.js"
-import { editarProdutoModal }           from "./cadastrarProduto.js"
 import { botoesCategoria }              from "./cadastrarProduto.js"
 import { cadastrarProdutoCategorias }   from "./cadastrarProduto.js"
 
@@ -16,8 +15,7 @@ AdminAPI.produtos()
 
 
 const adicionarProduto                  = document.getElementById("adicionarProduto")
-const spanCadastrarProdutoModal         = document.getElementsByClassName("close")[0];
-const spanEditarProdutoModal            = document.getElementsByClassName("close")[1];
+const span                              = document.getElementsByClassName("close")[0];
 const cadastrarProdutoForm              = document.getElementById("cadastrarProdutoForm");
 const cadastrarProdutoButton            = document.getElementById("cadastrarProdutoButton")
 
@@ -25,38 +23,25 @@ cadastrarProdutoButton.                 addEventListener("click", (e)=>{
     e.preventDefault()
     adminPage.cadastrarNovoProduto()
 })
-adicionarProduto.                       addEventListener("click", (evt) => {
-    evt.preventDefault()
-    adminPage.abrirModal(cadastrarProdutoModal)
-})
+adicionarProduto.                       addEventListener("click", adminPage.cadastrarProduto)
 
 adicionarProduto.addEventListener("click", () => {
     cadastrarProdutoCategorias.innerHTML=""
     adminPage.carregarCategorias("my/products", cadastrarProdutoCategorias, "Cadastro")
     setTimeout(() => adminPage.habilitarSelecaoCategorias("Cadastro"), 1000)
     setTimeout(() => adminPage.gerarCustomizarCategoria(), 100)
+    setTimeout(() => adminPage.habilitarSelecaoCategorias(), 700)
+    setTimeout(() => adminPage.gerarCustomizarCategoria(), 700)
     setTimeout(() => {
         adminPage.categoriaInedita.addEventListener("keyup", () => {
             adminPage.categoriaCustomizada  = adminPage.categoriaInedita.value
+            console.log(adminPage.categoriaCustomizada)
         })
-    }, 900)
+    }, 700)
 })
-
-spanCadastrarProdutoModal.addEventListener("click", (evt) => {
-    evt.preventDefault()
-    adminPage.fecharModal(cadastrarProdutoModal)
-})
-
-spanEditarProdutoModal.addEventListener("click", (evt) => {
-    evt.preventDefault()
-    adminPage.fecharModal(editarProdutoModal)
-})
-
+span.                                   addEventListener("click", adminPage.fecharModal)
 window.                                 addEventListener("click", function(event) {
     if (event.target == cadastrarProdutoModal) {
-        adminPage.fecharModal(cadastrarProdutoModal);
-    }
-    if (event.target == editarProdutoModal) {
-        adminPage.fecharModal(editarProdutoModal);
+        adminPage.fecharModal();
     }
 })

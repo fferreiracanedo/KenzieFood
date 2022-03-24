@@ -6,16 +6,17 @@ export class adminPage {
     static categoriaProdutos        = [];
     static categoriasEscolhidas     = [];
     static collection               = document.getElementsByTagName("input")
+    static categoriasEscolhidas     = []
     static categoriaCustomizada     = ""
     static categoriaInedita         = ""
     static categoriaMainPage        = []
 
-    static abrirModal (modal){
-        modal.style.display = "flex";
+    static cadastrarProduto (){
+        cadastrarProdutoModal.style.display = "flex";
     }
 
-    static fecharModal (modal){
-        modal.style.display = "none";
+    static fecharModal (){
+        cadastrarProdutoModal.style.display = "none";
     }
 
     static async gerarCustomizarCategoria(){
@@ -203,12 +204,12 @@ export class adminPage {
         })
     }
 
-    static async habilitarSelecaoCategorias(area){
+    static async habilitarSelecaoCategorias(){
         adminPage.categoriasEscolhidas.length = 0
         for (let i = 0; i < adminPage.collection.length; i++) {
-            if (adminPage.collection[i].id.includes(`${area}Button`)){
+            if (adminPage.collection[i].id.includes("CadastroButton")){
                 adminPage.collection[i].addEventListener("click", (event) => {
-                    
+
                     const categoriaProdutoClicado = event.target.value
                     if (!adminPage.categoriasEscolhidas.includes(categoriaProdutoClicado)){
                         adminPage.categoriasEscolhidas.push(categoriaProdutoClicado)
@@ -246,6 +247,7 @@ export class adminPage {
             "categoria": `${adminPage.categoriasEscolhidas.toString()}`,
             "imagem": `${imagemProduto.value}`,
             "descricao" : `${descricaoProduto.value}`,
+
         }
 
         if (adminPage.categoriaCustomizada !== ""){
@@ -269,10 +271,10 @@ export class adminPage {
         .then((res) => {
             notificationPopup.setAttribute("class", "notification-popup")
             if (res.status === 201){
-                notificationPopupTexto.innerHTML=`<p>Produto Adicionado com sucesso!</p>`
-                notificationPopupColor.style.backgroundColor = "#39DF8F"
+            notificationPopupTexto.innerHTML=`<p>Produto Adicionado com sucesso!</p>`
+            notificationPopupColor.style.backgroundColor = "#39DF8F"
                 adminPage.categoriasEscolhidas.length = 0
-                adminPage.fecharModal(cadastrarProdutoModal)
+                adminPage.fecharModal()
                 nomeProduto.value = ""
                 descricaoProduto.value = ""
                 valorProduto.value = ""
@@ -293,6 +295,7 @@ export class adminPage {
 
         })
     }
+
 
     static async editarProdutoExistente (idProduto){
         adminPage.editarProdutoCategorias.innerHTML=""
@@ -374,6 +377,7 @@ export class adminPage {
         })
 
     }
+
 }
 export const cadastrarProdutoCategorias        = document.getElementById("cadastrarProdutoCategorias");
 export const botoesCategoria                   = document.getElementById("botoesCategoria");
@@ -381,8 +385,10 @@ export const cadastrarProdutoModal             = document.getElementById("cadast
 export const notificationPopup                 = document.getElementById("notificationPopup")
 export const notificationPopupTexto            = document.getElementsByClassName("notification-popup__corpo")[0]
 export const notificationPopupColor            = document.getElementsByClassName("notification-popup__status")[0]
-export const editarProdutoModal                = document.getElementById("editarProdutoModal")
-export const salvarEdicaoButton                = document.getElementById("salvarEdicaoButton")
 export const categoriasEscolhidas              = []
 
+
 // export const categoriaInedita                  = document.getElementById("categoriaInedita")
+
+// export const categoriaInedita                  = document.getElementById("categoriaInedita")
+
