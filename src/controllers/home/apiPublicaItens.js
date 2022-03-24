@@ -19,11 +19,11 @@ export class ApiPublica {
 
     static template(array) {
         this.vitrine.innerHTML = ""
-      array.forEach(({nome,imagem,categoria,descricao,preco}) => {
+      array.forEach(({nome,imagem,categoria,descricao,preco, id}) => {
         const cardProduto = document.createElement("div");
         cardProduto.innerHTML = "";
         cardProduto.classList.add("cardProduto");
-
+        cardProduto.id = `${id}`
         cardProduto.innerHTML = `
             <img src="${imagem}"></img>
             <p id="produtoCategoria">${categoria}</p>
@@ -31,7 +31,7 @@ export class ApiPublica {
             <p id="produtoDescricao"> ${descricao}</p>
             <div id="precoBtn">
             <h4 id="produtoPreco">R$${preco}</h4>
-            <button id="btnAdicionarCarrinho">+</button>
+            <button class="adicionarNoCarrinho" id="btnAdicionarCarrinho">+</button>
             </div>
 `;          this.vitrine.appendChild(cardProduto);
       })

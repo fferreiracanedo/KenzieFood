@@ -33,7 +33,21 @@ header {
     color: #868e96;
 }
 
+#sairPesquisa{
+    display: flex;
+}
 
+#sairPesquisa button{
+    border: none;
+    background: none;
+    font-family: 'Poppins';
+    margin-right: 1rem;
+}
+
+#sairPesquisa button:hover{
+    color: #FF2253;
+    cursor: pointer;
+}
 
 #logoKenzieFood{
     display: flex;
@@ -67,6 +81,7 @@ main {
 img {
     transition: 0.5s;
     width: 270px;
+    height: 180px;
     border: 2px solid transparent;
 }
 
@@ -86,7 +101,6 @@ img:hover {
 
 #vitrineCarrinho {
     width: 250px;
-    height: 420px;
     display: flex;
     flex-direction: column;
     

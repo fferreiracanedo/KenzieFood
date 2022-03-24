@@ -18,4 +18,8 @@ export class LocalStorage{
             window.location.href = '../../index.html'
         }
     }
+
+    static clearUserLocalStorage(){
+        localStorage.removeItem('key')
+    }
 }
