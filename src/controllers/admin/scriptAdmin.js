@@ -112,3 +112,4 @@ window.                                 addEventListener("click", function(event
 })
 
 adminPage.carregarCategorias("my/products", botoesCategoria, "Nav")
+

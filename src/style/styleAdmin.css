@@ -738,7 +738,7 @@ color: #F8F9FA;
     right: 8px;
     position: fixed;
     transition: opacity .5s linear;
-    pointer-events: none
+   /*  pointer-events: none */
 }
 .notification-popup {
     opacity: 1;
