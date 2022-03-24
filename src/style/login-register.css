@@ -11,6 +11,8 @@ body {
     filter: drop-shadow(rgb(255, 0, 0) 5px 5px 40px);
 }
 
+
+
 #logo {
     display: flex;
     margin-bottom: 3em;
@@ -19,9 +21,9 @@ body {
 }
 
 p{
+    margin-bottom: -4px;
     text-align: center;
     font-size: 15px;
-    padding: 9px;
 }
 
 h1 {
@@ -75,13 +77,22 @@ button{
    
 }
 form input{
+    font-family: inter;
+    font-size: 15px;
     margin-bottom: 1rem;
     border: 1.5px solid #dee2e6;
     background-color: #f8f9fa;
     border-radius: 12px;
     padding: 1em;
     padding-left: 0.8em;
+  
 }
+
+form input:focus{
+    box-shadow: 0 0 0 0;
+    outline: 0;
+}
+
 
 #senha{
     margin-bottom: 0.5rem;
