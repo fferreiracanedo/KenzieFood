@@ -12,7 +12,10 @@ export class ApiPublica {
                     arrayProdutos.push(produto)
                 });
             });
-            return arrayProdutos
+
+        return arrayProdutos
+
+
     }
 
     static vitrine = document.getElementById("vitrineProdutos");
@@ -31,10 +34,10 @@ export class ApiPublica {
             <p id="produtoDescricao"> ${descricao}</p>
             <div id="precoBtn">
             <h4 id="produtoPreco">R$${preco}</h4>
-            <button class="adicionarNoCarrinho" id="btnAdicionarCarrinho">+</button>
+
             </div>
-`;          this.vitrine.appendChild(cardProduto);
-      })
-        
+`; this.vitrine.appendChild(cardProduto);
+        })
+
     }
 }

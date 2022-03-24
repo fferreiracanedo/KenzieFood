@@ -95,6 +95,7 @@ const botaoDeslogar = document.getElementById('sairDaConta')
 botaoDeslogar.addEventListener('click', () => {
     LocalStorage.clearUserLocalStorage()
     Autenticador.autenticar()
+
 })
 
 
