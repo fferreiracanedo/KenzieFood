@@ -61,9 +61,6 @@ export class CardProduto{
                 categoriaTitle.innerText=categoria
                 categoriaCard.appendChild(categoriaTitle)
             })
-<<<<<<< HEAD
-        },500)
-=======
         
             const buttonEditar = document.getElementById(`editar${id}`)
             buttonEditar.addEventListener("click", (evt) => {
@@ -78,7 +75,6 @@ export class CardProduto{
             })
 
         },100)
->>>>>>> 96c32f6b09051aa8d9c258e20e5222ae7776558d
 
         this.vitrineCard.appendChild(containerCard)
 

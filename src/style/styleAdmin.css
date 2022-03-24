@@ -183,12 +183,8 @@ header {
     margin-bottom: 5px;
 }
 
-<<<<<<< HEAD
-#cadastrarProdutoCategorias {
-=======
 #cadastrarProdutoCategorias,
 #editarProdutoCategorias {
->>>>>>> 96c32f6b09051aa8d9c258e20e5222ae7776558d
     display: flex;
     justify-content: flex-start;
     overflow: auto;
@@ -356,36 +352,24 @@ header {
 }
 
 #cadastrarProdutoCategorias::-webkit-scrollbar,
-<<<<<<< HEAD
-#botoesCategoria::-webkit-scrollbar {
-=======
 #botoesCategoria::-webkit-scrollbar,
 #editarProdutoCategorias::-webkit-scrollbar {
->>>>>>> 96c32f6b09051aa8d9c258e20e5222ae7776558d
     width: 1px;
     height: 10px;
 }
 
 .infoCategorias::-webkit-scrollbar-track, 
 #cadastrarProdutoCategorias::-webkit-scrollbar-track,
-<<<<<<< HEAD
-#botoesCategoria::-webkit-scrollbar-track {
-=======
 #botoesCategoria::-webkit-scrollbar-track,
 #editarProdutoCategorias::-webkit-scrollbar-track {
->>>>>>> 96c32f6b09051aa8d9c258e20e5222ae7776558d
     box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
     border-radius: 10px;
 }
    
 .infoCategorias::-webkit-scrollbar-thumb, 
 #cadastrarProdutoCategorias::-webkit-scrollbar-thumb,
-<<<<<<< HEAD
-#botoesCategoria::-webkit-scrollbar-thumb {
-=======
 #botoesCategoria::-webkit-scrollbar-thumb,
 #editarProdutoCategorias::-webkit-scrollbar-thumb {
->>>>>>> 96c32f6b09051aa8d9c258e20e5222ae7776558d
     background-color: #FF2253;
     border-radius: 10px;
 }
@@ -830,17 +814,6 @@ color: #F8F9FA;
     display: flex;
     align-items: center;
 }
-<<<<<<< HEAD
-
-#fotoPerfilDireita{
-    display: flex;
-    align-items: center;
-    margin: 0 48px 0 20px;
-}
-
-#logoKenzieFood{
-    margin: 0 48px;
-=======
 
 #fotoPerfilDireita{
     display: flex;
@@ -1034,5 +1007,4 @@ body{
         width: 365px;
         line-height: 19px;
     }
->>>>>>> 96c32f6b09051aa8d9c258e20e5222ae7776558d
 }

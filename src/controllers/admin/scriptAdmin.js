@@ -1,7 +1,4 @@
-<<<<<<< HEAD
-=======
 import { PesquisaDinamica } from "../home/campoPesquisa.js";
->>>>>>> 96c32f6b09051aa8d9c258e20e5222ae7776558d
 import { LocalStorage }                 from "../localStorage.js";
 import { AdminAPI }                     from "./adminAPI.js";
 import { adminPage }                    from "./cadastrarProduto.js"
@@ -75,11 +72,7 @@ adicionarProduto.                       addEventListener("click", (evt) => {
 adicionarProduto.addEventListener("click", () => {
     cadastrarProdutoCategorias.innerHTML=""
     adminPage.carregarCategorias("my/products", cadastrarProdutoCategorias, "Cadastro")
-<<<<<<< HEAD
-    setTimeout(() => adminPage.habilitarSelecaoCategorias("Cadastro"), 1000)
-=======
     setTimeout(() => adminPage.habilitarSelecaoCategorias("Cadastro"), 900)
->>>>>>> 96c32f6b09051aa8d9c258e20e5222ae7776558d
     setTimeout(() => adminPage.gerarCustomizarCategoria(), 100)
     setTimeout(() => adminPage.habilitarSelecaoCategorias(), 700)
     setTimeout(() => adminPage.gerarCustomizarCategoria(), 100)
