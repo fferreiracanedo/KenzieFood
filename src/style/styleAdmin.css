@@ -191,7 +191,7 @@ header {
     max-width: 440px;
 }
 
-#cadastrarProdutoCategorias .categoriasVitrine {
+#cadastrarProdutoCategorias .categoriasVitrine, #btnTodos {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -227,11 +227,11 @@ header {
     margin-right: 10px;
 }
 
-.categoriasVitrine {
+.categoriasVitrine, #btnTodos {
     color: #212529;
     border: 1.5px solid #fff7f4;
 }
-.categoriasVitrine, .categoriaSelected, .categoriaProdutoSelected {
+.categoriasVitrine, .categoriaSelected, .categoriaProdutoSelected,#btnTodos {
     display: flex;
     align-items: center;
     height: 40px;
@@ -249,7 +249,11 @@ header {
     line-height: 19px;
 }
 
-.categoriasVitrine:hover, .categoriaSelected, .categoriaProdutoSelected {
+#btnTodos:hover{
+    color: #FF2253;
+}
+
+.categoriasVitrine:hover, .categoriaSelected, .categoriaProdutoSelected  {
     background-color: #FF2253;
     border: 1.5px solid #FF2253;
     color: white;
