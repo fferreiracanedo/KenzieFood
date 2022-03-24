@@ -141,8 +141,8 @@
 
                     <div class="modalEditarProdutoCarrinho__containerBotoesSubmit">
 
-                        <button id="salvarEdicaoButton" class="modalEditarProdutoCarrinho__butoes">Excluir</button>
-                        <button
+                        <button id="excluirProdutoButton" class="modalEditarProdutoCarrinho__butoes">Excluir</button>
+                        <button id="salvarEdicaoButton"
                             class="modalEditarProdutoCarrinho__butoes modalEditarProdutoCarrinho__butoes--width">Salvar
                             alterações</button>
                     </div>
@@ -163,17 +163,19 @@
 
         <div class="notification-popup__status"></div>
     </div>
-
-    <div id="modal-delete">
-        <section id="opcao-sair">
-            <h3 class="titulo-delete">Exclusão de Produto</h3>
-            <button id="sair">X</button>
-        </section>
-        <section id="delete-info">
-            <h2>Tem certeza que deseja excluir esse produto?</h2>
-            <button class="btn-style-modal-delete" id="sim">Sim</button>
-            <button class="btn-style-modal-delete" id="não">Não</button>
-        </section>
+    <div id="modal-delete" class="modal">
+        <div class="modal-content">
+            <section class="cadastro" id="opcao-sair">
+                <h3 class="titulo-delete">Exclusão de Produto</h3>
+                <span class="close">X</span>
+            </section>
+            <section id="delete-info">
+                <h2>Tem certeza que deseja excluir esse produto?</h2>
+                <button class="btn-style-modal-delete" id="excluirProdutoSim">Sim</button>
+                <button class="btn-style-modal-delete" id="excluirProdutoNao">Não</button>
+            </section>
+        </div>
+    </div>
 
     <script type="module" src="../controllers/admin/scriptAdmin.js"></script>
 </body>

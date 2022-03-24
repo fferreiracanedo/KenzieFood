@@ -55,8 +55,10 @@ if(clique == 'btnTodos'){
 const adicionarProduto                  = document.getElementById("adicionarProduto")
 const spanCadastrarProdutoModal         = document.getElementsByClassName("close")[0];
 const spanEditarProdutoModal            = document.getElementsByClassName("close")[1];
+const spanExcluirProdutoModal           = document.getElementsByClassName("close")[2];
 const cadastrarProdutoForm              = document.getElementById("cadastrarProdutoForm");
 const cadastrarProdutoButton            = document.getElementById("cadastrarProdutoButton")
+
 export const editarProdutoCategorias    = document.getElementById("editarProdutoCategorias");
 
 cadastrarProdutoButton.addEventListener("click", (e)=>{
@@ -94,11 +96,18 @@ spanEditarProdutoModal.addEventListener("click", (evt) => {
     adminPage.fecharModal(editarProdutoModal)
 })
 
+spanExcluirProdutoModal.addEventListener("click", (evt) => {
+    evt.preventDefault()
+    adminPage.fecharModal(adminPage.excluirProdutoModal)
+})
+
 window.                                 addEventListener("click", function(event) {
     if (event.target == cadastrarProdutoModal) {
         adminPage.fecharModal(cadastrarProdutoModal);
-    }else  if (event.target == editarProdutoModal) {
+    } else if (event.target == editarProdutoModal) {
         adminPage.fecharModal(editarProdutoModal);
+    } else if (event.target == adminPage.excluirProdutoModal) {
+        adminPage.fecharModal(adminPage.excluirProdutoModal);
     }
 })
 
