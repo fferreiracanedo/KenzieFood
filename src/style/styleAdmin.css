@@ -183,8 +183,7 @@ header {
     margin-bottom: 5px;
 }
 
-#cadastrarProdutoCategorias,
-#editarProdutoCategorias {
+#cadastrarProdutoCategorias {
     display: flex;
     justify-content: flex-start;
     overflow: auto;
@@ -207,6 +206,7 @@ header {
     width: fit-content;
     padding: 0px 20px;
     height: 40px;
+    margin: 4px;
 }
 
 #cadastrarProdutoCategorias .categoriasVitrine:hover, .categoriasVitrine:hover, .categoriaSelected, .categoriaProdutoSelected {
@@ -234,7 +234,7 @@ header {
 .categoriasVitrine, .categoriaSelected, .categoriaProdutoSelected {
     display: flex;
     align-items: center;
-    height: 40px;
+    height: 48px;
     width: fit-content;
     font-family: "Inter";
     font-style: normal;
@@ -246,7 +246,6 @@ header {
     margin-right: 3px;
     padding: 0px 20px;
     cursor: pointer;
-    line-height: 19px;
 }
 
 .categoriasVitrine:hover, .categoriaSelected, .categoriaProdutoSelected {
@@ -271,12 +270,12 @@ header {
     width: fit-content;
     padding: 0px 20px;
     height: 40px;
+    margin: 4px;
 }
 
 .categoriaProdutoSelected {
     height: 40px;
-    margin-bottom: 20px;
-    margin-right: 3px;
+    margin: 4px;
 }
 /* TABELA CARDS */
 
@@ -348,24 +347,21 @@ header {
 }
 
 #cadastrarProdutoCategorias::-webkit-scrollbar,
-#botoesCategoria::-webkit-scrollbar,
-#editarProdutoCategorias::-webkit-scrollbar {
+#botoesCategoria::-webkit-scrollbar {
     width: 1px;
     height: 10px;
 }
 
 .infoCategorias::-webkit-scrollbar-track, 
 #cadastrarProdutoCategorias::-webkit-scrollbar-track,
-#botoesCategoria::-webkit-scrollbar-track
-#editarProdutoCategorias::-webkit-scrollbar-track {
+#botoesCategoria::-webkit-scrollbar-track {
     box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
     border-radius: 10px;
 }
    
 .infoCategorias::-webkit-scrollbar-thumb, 
 #cadastrarProdutoCategorias::-webkit-scrollbar-thumb,
-#botoesCategoria::-webkit-scrollbar-thumb,
-#editarProdutoCategorias::-webkit-scrollbar-thumb {
+#botoesCategoria::-webkit-scrollbar-thumb {
     background-color: #FF2253;
     border-radius: 10px;
 }
@@ -412,7 +408,6 @@ header {
     align-items: center;
     justify-content: center;
     border: none;
-    cursor: pointer;
 }
 
 .infoAcoes button svg{
@@ -520,8 +515,9 @@ body{
     display: flex;
     justify-content: center;
     flex-direction: column;
+
     height: 96px;
-    margin: 20px 0px;
+    margin-top: 40px;
 
 }
 
@@ -646,8 +642,8 @@ body{
     align-items: center;
 
     width: 440px;
-    height: fit-content;
-    margin-top: 10px;
+    height: 60px;
+    margin-top: 40px;
 
 }
 .modalEditarProdutoCarrinho__categoria h3{
@@ -719,7 +715,6 @@ color: #F8F9FA;
     border: 1.5px solid #FF2253;
     background-color: #FF2253;
     color: #F8F9FA;
-    cursor: pointer;
 }
 .modalEditarProdutoCarrinho--hide{
     display: none;
