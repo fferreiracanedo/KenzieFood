@@ -145,7 +145,7 @@ export class Carrinho {
           <div class="descricaoItens">
           <p id="produtoCategoriaCarrinho">${categoria}</p>
           <h2 id="produtoNomeCarrinho">${nome}</h2>
-          <h4 class='valorProdutoCarrinho'id="produtoPrecoCarrinho">R$${preco.toFixed(2)}</h4>
+          <h4 class='valorProdutoCarrinho'id="produtoPrecoCarrinho">R$${preco}</h4>
           </div>
           <button class="tirarCarrinho" id="btnTirarCarrinho">X</button>
           </div>
