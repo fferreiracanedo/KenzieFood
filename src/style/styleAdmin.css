@@ -110,7 +110,7 @@ header {
     display: flex;
     flex-direction: column;
     background-color: #F8F9FA;
-    margin: 15% auto; 
+    margin: auto;
     padding: 20px 0px;
     border: 1px solid #888;
     width: 496px; 
@@ -871,6 +871,13 @@ color: #F8F9FA;
 
 @media (max-width: 480px){
 
+    #cadastrarProdutoInfo {
+        display: flex;
+        justify-content: center;
+        background: #FFFFFF;
+        border-radius: 0px 0px 8px 8px;
+        width: 408px;
+    }
     #vitrineCategorias {
         display: grid;
         justify-content: space-between;
@@ -878,6 +885,7 @@ color: #F8F9FA;
     }
     #vitrineCategorias #adicionarProduto{
         margin-top: 10px;
+        width: 227px;
     }
     #fotoPerfilDireita{
         display: none;
@@ -946,8 +954,7 @@ color: #F8F9FA;
     #cadastrarProdutoForm {
         display: flex;
         flex-direction: column;
-        width: 364px;
-    }
+        width: fit-content;    }
     .cadastrarProdutoInput {
         width: 368px;
         height: 52px;
@@ -955,6 +962,15 @@ color: #F8F9FA;
         border: 1.5px solid #DEE2E6;
         box-sizing: border-box;
         border-radius: 12px;
+    }
+    .modalEditarProdutoCarrinho__categoria {
+        display: flex;
+        flex-direction: column;
+        justify-content: stretch;
+        align-items: center;
+        width: 357px;
+        height: 96px;
+        margin-top: 10px;
     }
     #adicionarProduto, #cadastrarProdutoButton {
         background-color: #FF2253;
@@ -971,4 +987,122 @@ color: #F8F9FA;
         width: 365px;
         line-height: 19px;
     }
+    .modalEditarProdutoCarrinho {
+        width: 496px;
+        display: grid;
+        margin: auto;
+        place-content: center;
+    }
+    .modalEditarProdutoCarrinho__containerBotoesSubmit {
+        margin-bottom: 30px;
+        /* width: fit-content; */
+        display: flex;
+    }
+    .modalEditarProdutoCarrinho {
+        width: 496px;
+        margin: auto;
+    }
+    .modalEditarProdutoCarrinho__containerBotoesSubmit .modalEditarProdutoCarrinho__butoes--width {
+        width: 177px;
+    }
+    .modalEditarProdutoCarrinho__corpo {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 401px;
+        border-radius: 0px 0px 8px 8px;
+        background-color: #FFFFFF;
+    }
+    .modalEditarProdutoCarrinho__cabecalho {
+        display: flex;
+        align-items: center;
+        position: relative;
+        width: 401px;
+        height: 70px;
+        border-radius: 8px 8px 0px 0px;
+        background-color: #F8F9FA;
+    }
+
+    #cadastrarProdutoCategorias, #editarProdutoCategorias {
+        display: flex;
+        justify-content: flex-start;
+        overflow: auto;
+        max-width: 229px;
+        width: 80vw;
+    }
+
+    #adicionarProduto, #cadastrarProdutoButton {
+        background-color: #FF2253;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: 1.5px solid #FF2253;
+        box-sizing: border-box;
+        border-radius: 32px;
+        cursor: pointer;
+        color: white;
+        width: 77px;
+        font-weight: 500;
+        font-size: 16px;
+        width: 226px;
+        line-height: 19px;
+    }
+    #cadastrarProdutoForm label {
+        margin-top: 10px;
+        width: 200px;
+        margin-bottom: 5px;
+    }
+#cadastrarProdutoInfo {
+    display: flex;
+    justify-content: center;
+    background: #FFFFFF;
+    border-radius: 0px 0px 8px 8px;
+    width: 286px;
+}
+
+.btn-style-modal-delete {
+    border-radius: 32px;
+    color: #868E96;
+    border: none;
+    margin-bottom: 35px;
+    margin-top: 49px;
+    margin-left: 28px;
+    width: fit-content;
+    padding: 0 37px;
+    height: 52px;
+    cursor: pointer;
+}
+.modal-content {
+    display: flex;
+    flex-direction: column;
+    background-color: #F8F9FA;
+    margin: auto;
+    padding: 20px 0px;
+    border: 1px solid #888;
+    width: 286px;
+    border-radius: 8px;
+    font-family: 'Inter';
+}
+#delete-info>h2 {
+    margin-right: 50px;
+    margin-left: 50px;
+    font-size: 16px;
+    font-weight: 500;
+    font-style: normal;
+    width: fit-content;
+}
+#cadastrarProdutoForm {
+    display: flex;
+    flex-direction: column;
+    max-width: 357px;
+}
+
+.cadastrarProdutoInput {
+    width: 228px;
+    height: 52px;
+    background: #F8F9FA;
+    border: 1.5px solid #DEE2E6;
+    box-sizing: border-box;
+    border-radius: 12px;
+}
 }

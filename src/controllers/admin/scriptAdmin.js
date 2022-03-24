@@ -33,8 +33,7 @@ let arrayProdutos = []
 function filtrarCategorias(event){
 const inputs = event.target
 arrProd.filter((produto)=>{
-    if(produto.categoria == inputs.value){
-        console.log(this)
+    if(produto.categoria.includes(inputs.value)){
         arrayProdutos.push(produto)
     }
 })
@@ -77,11 +76,9 @@ adicionarProduto.addEventListener("click", () => {
     setTimeout(() => adminPage.habilitarSelecaoCategorias("Cadastro"), 900)
     setTimeout(() => adminPage.gerarCustomizarCategoria(), 100)
     setTimeout(() => adminPage.habilitarSelecaoCategorias(), 700)
-    setTimeout(() => adminPage.gerarCustomizarCategoria(), 100)
     setTimeout(() => {
         adminPage.categoriaInedita.addEventListener("keyup", () => {
             adminPage.categoriaCustomizada  = adminPage.categoriaInedita.value
-            console.log(adminPage.categoriaCustomizada)
         })
     }, 1000)
 })
