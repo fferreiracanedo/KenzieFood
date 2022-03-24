@@ -248,7 +248,7 @@ img:hover {
 
 .cardProduto {
     width: 270px;
-    margin: 0 20px 20px 2px;
+    margin: 0 20px 30px 2px;
 }
 
 #produtoNome {
@@ -420,7 +420,7 @@ img:hover {
     }
 
     #vitrineCarrinho {
-        height: 100px;
+        height: 100%;
         min-width: 100vw;
         display: flex;
         flex-direction: row;
@@ -432,7 +432,7 @@ img:hover {
     .cardCarrinho {
         margin-top: 10px;
         margin-left: 5px;
-        height: 50px;  
+        height: 100px;  
         width: 100vw;
     }
 
