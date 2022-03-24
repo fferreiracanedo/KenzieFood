@@ -12,6 +12,7 @@ export class RemoverCarrinhar{
                 this.removerItemCarrinhoAutenticado(cardClick.replace(/^./, ""))
                 Carrinho.removerCarrinhoAutenticado(cardClick)
                 }) 
+                
             })
     }
 
@@ -25,6 +26,7 @@ export class RemoverCarrinhar{
                 "Authorization": `Bearer ${tokenDaEquipe}`
             }
         })
+        
     }
 
     static removerItemCarrinhoAnonimo(){
@@ -34,7 +36,17 @@ export class RemoverCarrinhar{
                 const click = e.target
                 const cardClick = click.closest('.cardProduto')
                 Carrinho.removerCarrinhoAnonimo(cardClick)
-                }) 
+
+                    const totalCarrinho = document.getElementById('spanValorCarrinho')
+                    let valorTotal = 0
+                    const valores = document.querySelectorAll('.valorProdutoCarrinho')
+                    valores.forEach((valor) => {
+                        const valorAtual = Number(valor.innerText.slice(2))
+                        valorTotal   += valorAtual
+                    })
+                    totalCarrinho.innerText = valorTotal 
+            
+            }) 
             })
     }
 }
