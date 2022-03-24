@@ -7,7 +7,6 @@ import { UsuarioAutenticadoAPI } from './usuarioAunteticadoAPI.js'
 import { LocalStorage } from '../localStorage.js'
 import { Carrinho } from './adicionarCarrinho.js'
 import { RemoverCarrinhar} from './removerCarrinho.js'
-
 // AUTENTICACAO
 Autenticador.autenticar()
 const verificacao = Autenticador.usuarioAtual()

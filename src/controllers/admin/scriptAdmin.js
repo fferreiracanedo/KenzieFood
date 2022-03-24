@@ -1,17 +1,12 @@
 
 import { LocalStorage }                 from "../localStorage.js";
 import { AdminAPI }                     from "./adminAPI.js";
-import { adminPage }                    from "./cadastrarProduto.js"
+import { adminPage,cadastrarProdutoModal,editarProdutoModal,botoesCategoria,cadastrarProdutoCategorias } from "./cadastrarProduto.js"
 
-import { cadastrarProdutoModal }        from "./cadastrarProduto.js"
-import { editarProdutoModal }           from "./cadastrarProduto.js"
-import { botoesCategoria }              from "./cadastrarProduto.js"
-import { cadastrarProdutoCategorias }   from "./cadastrarProduto.js"
 
 // AUTENTICACAO
 LocalStorage.getLocalStorageAutenticadorAdmin()
 
-adminPage.carregarCategorias("my/products", botoesCategoria, "Nav")
 
 AdminAPI.produtos()
 
@@ -23,11 +18,11 @@ const cadastrarProdutoForm              = document.getElementById("cadastrarProd
 const cadastrarProdutoButton            = document.getElementById("cadastrarProdutoButton")
 export const editarProdutoCategorias    = document.getElementById("editarProdutoCategorias");
 
-cadastrarProdutoButton.                 addEventListener("click", (e)=>{
+cadastrarProdutoButton.addEventListener("click", (e)=>{
     e.preventDefault()
     adminPage.cadastrarNovoProduto()
 })
-adicionarProduto.                       addEventListener("click", (evt) => {
+adicionarProduto.addEventListener("click", (evt) => {
     evt.preventDefault()
     adminPage.abrirModal(cadastrarProdutoModal)
 })
@@ -62,3 +57,5 @@ window.                                 addEventListener("click", function(event
         adminPage.fecharModal(editarProdutoModal);
     }
 })
+
+adminPage.carregarCategorias("my/products", botoesCategoria, "Nav")
