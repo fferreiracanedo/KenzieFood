@@ -1,5 +1,6 @@
 import { AdminAPI }                     from "./adminAPI.js";
 export class adminPage {
+    static excluirProdutoModal      = document.getElementById("modal-delete")
     static editarProdutoCategorias  = document.getElementById("editarProdutoCategorias");    
     static API_URL                  = 'https://kenzie-food-api.herokuapp.com/'
     static categoriaProdutos        = [];
@@ -10,7 +11,7 @@ export class adminPage {
     static categoriaMainPage        = []
 
     static abrirModal (modal){
-        modal.style.display = "flex";
+        modal.style.display = "block";
     }
 
     static fecharModal (modal){
@@ -298,6 +299,13 @@ export class adminPage {
         const UserToken = localStorage.getItem('key').replaceAll(`"`, ``)
         adminPage.abrirModal(editarProdutoModal)
         setTimeout(() => adminPage.habilitarSelecaoCategorias("Edicao"), 900)
+        const excluirProdutoButton = document.getElementById("excluirProdutoButton")
+
+        excluirProdutoButton.addEventListener("click", (evt) => {
+            evt.preventDefault()
+            adminPage.abrirModal(adminPage.excluirProdutoModal)
+            adminPage.fecharModal(editarProdutoModal)
+        })
 
         const nomeProduto       = editarProdutoModal.querySelector('input[name="nomeProduto"]')
         const descricaoProduto  = editarProdutoModal.querySelector('textarea[name="descricaoProduto"]')
@@ -383,32 +391,53 @@ export class adminPage {
         })
     }
 
-    static async excluirProdutoExistente (idProduto) {
+    static async deletarProdutoExistente (idProduto) {
         const UserToken = localStorage.getItem('key').replaceAll(`"`, ``)
-        // adminPage.abrirModal(excluirProdutoModal)
 
-        fetch(`https://kenzie-food-api.herokuapp.com/my/products/${idProduto}`, {
-            "method": "DELETE",
-            "headers": {
-                "Content-Type": "application/json",
-                "Authorization": `Bearer ${UserToken}`
-            }
+        adminPage.abrirModal(adminPage.excluirProdutoModal)
+
+        const excluirProdutoSim                 = document.getElementById("excluirProdutoSim");
+        const excluirProdutoNao                 = document.getElementById("excluirProdutoNao");
+
+        excluirProdutoSim.addEventListener("click", (evt) => {
+            evt.preventDefault()
+            fetch(`https://kenzie-food-api.herokuapp.com/my/products/${idProduto}`, {
+                "method": "DELETE",
+                "headers": {
+                    "Content-Type": "application/json",
+                    "Authorization": `Bearer ${UserToken}`
+                }
+            })
+            .then((res) => {
+                notificationPopup.setAttribute("class", "notification-popup")
+                if (res.status === 204){
+                    notificationPopupTexto.innerHTML=`<p>Produto Excluído com sucesso!</p>`
+                    notificationPopupColor.style.backgroundColor = "#39DF8F"
+                    adminPage.categoriasEscolhidas.length = 0
+                    adminPage.fecharModal(adminPage.excluirProdutoModal)
+                    AdminAPI.produtos()
+                } else {
+                    notificationPopupTexto.innerHTML=`<p>Ocorreu algum erro. Produto não excluído!</p>`
+                    notificationPopupColor.style.backgroundColor = "#fc0303"
+                }
+                setTimeout(() => {
+                    notificationPopup.setAttribute("class", "notification-popup--hide")
+                },5000)
+            })
         })
-        .then(() => {
+
+
+        excluirProdutoNao.addEventListener("click", (evt) => {
+            evt.preventDefault()
             notificationPopup.setAttribute("class", "notification-popup")
-                    if (res.status === 204){
-                        notificationPopupTexto.innerHTML=`<p>Produto Excluído com sucesso!</p>`
-                        notificationPopupColor.style.backgroundColor = "#39DF8F"
-                        adminPage.categoriasEscolhidas.length = 0
-                        // adminPage.fecharModal(excluirProdutoModal)
-                        AdminAPI.produtos()
-                    } else {
-                        notificationPopupTexto.innerHTML=`<p>Ocorreu algum erro. Produto não excluído!</p>`
-                        notificationPopupColor.style.backgroundColor = "#fc0303"
-                    }
-                    setTimeout(() => {
-                        notificationPopup.setAttribute("class", "notification-popup--hide")
-                    },5000)
+            notificationPopupTexto.innerHTML=`<p>Produto não foi excluído!</p>`
+            notificationPopupColor.style.backgroundColor = "#FFDA29"
+            adminPage.categoriasEscolhidas.length = 0
+            adminPage.fecharModal(adminPage.excluirProdutoModal)
+
+            setTimeout(() => {
+                notificationPopup.setAttribute("class", "notification-popup--hide")
+            },5000)
         })
     }
 }

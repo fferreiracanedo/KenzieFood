@@ -829,50 +829,10 @@ color: #F8F9FA;
     margin: 0 48px;
 }
 
-body{
-    font-family: 'Poppins', sans-serif;
-
-}
-
-#modal-delete{
-    position: absolute;
-    top: -2px;
-    left: -225px;
-    height: 283px;
-    width: 491px;
-    border-radius: 8px 8px 8px 8px;
-    margin-top: 52px;
-    margin-bottom: 527px;
-    /* margin-right: 696px; */
-    margin-left: 676px;
-    background-color: #FFFFFF;
-
-}
-
 #opcao-sair{
-    display: flex;
     flex-direction: row;
-    justify-content: space-between;
 }
 
-.titulo-delete{
-    margin-top: 25px;
-    margin-bottom: 25px;
-    margin-left: 28px;
-}
-  
-  
-#sair{
-    color: #868E96;
-    border: none;
-    width: 31px;
-    height: 30px;
-    margin-right: 20px;
-    margin-top: 20px;
-    margin-bottom: 20px;
-}
-  
-  
 #delete-info>h2{
     margin-top: 50px;
     margin-right: 71px;
@@ -883,9 +843,7 @@ body{
     width: 369px;
 }
   
-  
-  
-.btn-style-modal-delete{
+.btn-style-modal-delete {
     border-radius: 32px;
     color: #868E96;
     border: none;
@@ -894,5 +852,10 @@ body{
     margin-left: 28px;
     width: 210px;
     height: 52px;
+    cursor: pointer;
+}
 
+.btn-style-modal-delete:hover {
+    background-color: #FF2253;
+    color: white;
 }
