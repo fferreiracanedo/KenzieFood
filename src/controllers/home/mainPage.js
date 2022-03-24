@@ -23,7 +23,6 @@ if(verificacao == 'autenticado'){
 
 
     // RENDERIZACAO BOTOES CATEGORIAS
-    adminPage.carregarCategorias("products", botoesCategoria, "Nav")
     adminPage.carregarCategorias("my/products", botoesCategoria, "Nav")
 
     // FILTRO POR PESQUISA
