@@ -29,8 +29,6 @@ export class adminPage {
         
         categoriaInedita.addEventListener("keyup", () => {
             adminPage.categoriaCustomizada = categoriaInedita.value
-            console.log(categoriaInedita.value)
-            console.log(adminPage.categoriaCustomizada)
         })
     
     }
@@ -142,7 +140,7 @@ export class adminPage {
             "imagem": `${imagemProduto.value}`,
             "descricao" : `${descricaoProduto.value}`,
         }
-        
+
         fetch(`${this.API_URL}my/products`, {
             "method": "POST",
             "headers": {
@@ -337,8 +335,7 @@ export class adminPage {
             notificationPopupColor.style.backgroundColor = "#FFDA29"
             adminPage.categoriasEscolhidas.length = 0
             adminPage.fecharModal(adminPage.excluirProdutoModal)
-            console.log(notificationPopup)
-            console.log(botaofecharPopup)
+    
             botaofecharPopup.addEventListener("click", fecharPop)
             setTimeout(() => {
                 notificationPopup.setAttribute("class", "notification-popup--hide")
