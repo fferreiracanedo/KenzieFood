@@ -26,7 +26,11 @@ export class adminPage {
         categoriaInedita.setAttribute("id", "categoriaInedita")
         categoriaInedita.setAttribute("placeholder", "Nova Categoria")
         cadastrarProdutoCategorias.appendChild(categoriaInedita)
-        adminPage.categoriaInedita                  = document.getElementById("categoriaInedita")
+        
+        categoriaInedita.addEventListener("keyup", () => {
+            adminPage.categoriaCustomizada = categoriaInedita.value
+        })
+    
     }
 
     static async carregarCategorias (url, area, buttonID){
@@ -119,6 +123,16 @@ export class adminPage {
         const valorProduto                   = document.querySelector('input[name="valorProduto"]')
         const imagemProduto                  = document.querySelector('input[name="imagemProduto"]')
         
+        
+        if (adminPage.categoriaCustomizada !== ""){
+            
+            if (adminPage.categoriaProdutos.includes(adminPage.categoriaCustomizada)){
+                window.alert("Não é possível registrar esta nova categoria pois ela já existe!")
+            } else {
+                adminPage.categoriasEscolhidas.push(adminPage.categoriaCustomizada)
+            }
+        }
+        
         const data = {
             "nome": `${nomeProduto.value}`,
             "preco": valorProduto.value,
@@ -127,15 +141,6 @@ export class adminPage {
             "descricao" : `${descricaoProduto.value}`,
         }
 
-        if (adminPage.categoriaCustomizada !== ""){
-           
-            if (adminPage.categoriaProdutos.includes(adminPage.categoriaCustomizada)){
-                window.alert("Não é possível registrar esta nova categoria pois ela já existe!")
-            } else {
-                adminPage.categoriasEscolhidas.push(adminPage.categoriaCustomizada)
-            }
-        }
-        
         fetch(`${this.API_URL}my/products`, {
             "method": "POST",
             "headers": {
@@ -330,8 +335,7 @@ export class adminPage {
             notificationPopupColor.style.backgroundColor = "#FFDA29"
             adminPage.categoriasEscolhidas.length = 0
             adminPage.fecharModal(adminPage.excluirProdutoModal)
-            console.log(notificationPopup)
-            console.log(botaofecharPopup)
+    
             botaofecharPopup.addEventListener("click", fecharPop)
             setTimeout(() => {
                 notificationPopup.setAttribute("class", "notification-popup--hide")

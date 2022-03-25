@@ -49,12 +49,6 @@ adicionarProduto.addEventListener("click", () => {
     setTimeout(() => adminPage.habilitarSelecaoCategorias("Cadastro"), 900)
     setTimeout(() => adminPage.gerarCustomizarCategoria(), 100)
     setTimeout(() => adminPage.habilitarSelecaoCategorias(), 700)
-    setTimeout(() => {
-        adminPage.categoriaInedita.addEventListener("keyup", () => {
-            adminPage.categoriaCustomizada  = adminPage.categoriaInedita.value
-            
-        })
-    }, 1000)
 })
 
 spanCadastrarProdutoModal.addEventListener("click", (evt) => {
