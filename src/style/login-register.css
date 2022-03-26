@@ -3,7 +3,7 @@
 body {
     background-color: rgb(233, 236, 239);
     font-family: Poppins, sans-serif;
-    background-image: url(/src/img/fundo-login-register.png);
+    background-image: url(../img/fundo-login-register.png);
     background-size: 100%;
     background-position: 159px;
     background-position-x: 100%;
